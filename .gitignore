@@ -1,0 +1,47 @@
+src/app/resources/help/
+.DS_Store
+.qmake.stash
+*.qmake
+*.app/
+.qm/
+obj/
+main
+.idea/
+build/
+dist/
+dist_build/
+.vscode/
+about.ini
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app

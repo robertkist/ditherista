@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>766</width>
+    <height>527</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>APP_TITLE</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
+         </property>
+         <widget class="GraphicsView" name="graphicsView">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAsNeeded</enum>
+          </property>
+         </widget>
+         <widget class="QWidget" name="verticalLayoutWidget">
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="bottomMargin">
+            <number>12</number>
+           </property>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>13</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="TreeWidget" name="treeWidget">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>choose a dither algorithm</string>
+               </property>
+               <property name="indentation">
+                <number>0</number>
+               </property>
+               <property name="columnCount">
+                <number>1</number>
+               </property>
+               <attribute name="headerVisible">
+                <bool>false</bool>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string notr="true">1</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_9">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>8</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QWidget" name="ditherSettingsContainer" native="true">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_18">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="StackedWidget" name="ditherSettings">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="currentIndex">
+                 <number>9</number>
+                </property>
+                <widget class="QWidget" name="pageEmpty"/>
+                <widget class="QWidget" name="pageGeneric">
+                 <layout class="QGridLayout" name="gridLayout_12">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="Generic_groupBox">
+                    <property name="title">
+                     <string>Dither Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_9">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_21">
+                       <property name="text">
+                        <string>Ditherer</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="ElideLabel" name="Generic_dither_name">
+                       <property name="text">
+                        <string>TextLabel</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageDBS">
+                 <layout class="QGridLayout" name="gridLayout_10">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="DBS_groupBox">
+                    <property name="title">
+                     <string>DBS Dither Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_3">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_5">
+                       <property name="text">
+                        <string>Formula</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QComboBox" name="DBS_formula">
+                       <property name="toolTip">
+                        <string>changes the coarseness of the dithered pixel distribution</string>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>1</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>2</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>3</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>4</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>5</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>6</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>7</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageERR">
+                 <layout class="QGridLayout" name="gridLayout_11">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="ERR_groupBox">
+                    <property name="title">
+                     <string>Error Diffusion Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_6">
+                     <item row="0" column="1">
+                      <widget class="QDoubleSpinBox" name="ERR_jitter">
+                       <property name="toolTip">
+                        <string>introduces randomness into the dithering</string>
+                       </property>
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.050000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QCheckBox" name="ERR_serpentine">
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="toolTip">
+                        <string>use alternate left-to-right processing</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_6">
+                       <property name="text">
+                        <string>Jitter</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_7">
+                       <property name="text">
+                        <string>Serpentine</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageORD">
+                 <layout class="QGridLayout" name="gridLayout_14" rowstretch="0">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="ORD_groupBox">
+                    <property name="title">
+                     <string>Ordered Dither Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_4">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_22">
+                       <property name="text">
+                        <string>Jitter</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QDoubleSpinBox" name="ORD_jitter">
+                       <property name="toolTip">
+                        <string>introduces randomness into the dithering</string>
+                       </property>
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.010000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageRIM">
+                 <layout class="QGridLayout" name="gridLayout_15">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="RIM_groupBox">
+                    <property name="title">
+                     <string>Riemersma Dither Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_5">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_12">
+                       <property name="text">
+                        <string>Modified Algorithm</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QCheckBox" name="RIM_modRiemersma">
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="toolTip">
+                        <string>uses modified algorithm for dither calculation</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageTHR">
+                 <layout class="QGridLayout" name="gridLayout_16">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="THR_groupBox">
+                    <property name="title">
+                     <string>Threshold Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_7">
+                     <item row="2" column="1">
+                      <widget class="QCheckBox" name="THR_autoThreshold">
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="toolTip">
+                        <string>automatically determine threshold based on average brightness</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_16">
+                       <property name="text">
+                        <string>Threshold</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QDoubleSpinBox" name="THR_threshold">
+                       <property name="toolTip">
+                        <string>brightness threshold when to dither a pixel black or white</string>
+                       </property>
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.050000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>0.500000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_15">
+                       <property name="text">
+                        <string>Jitter</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_17">
+                       <property name="text">
+                        <string>Auto Threshold</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QDoubleSpinBox" name="THR_jitter">
+                       <property name="toolTip">
+                        <string>introduces randomness into the dithering</string>
+                       </property>
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.050000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageVAR">
+                 <layout class="QGridLayout" name="gridLayout_13">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="VAR_groupBox">
+                    <property name="title">
+                     <string>Variable Error Diffusion Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_8">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_20">
+                       <property name="text">
+                        <string>Serpentine</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QCheckBox" name="VAR_serpentine">
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="toolTip">
+                        <string>use alternate left-to-right processing</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageORD_IGR">
+                 <layout class="QGridLayout" name="gridLayout_23">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="ORD_IGR_groupBox">
+                    <property name="title">
+                     <string>Ordered Dither Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_22">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_37">
+                       <property name="text">
+                        <string>Jitter</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_38">
+                       <property name="text">
+                        <string>Step</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QDoubleSpinBox" name="ORD_IGR_a">
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="decimals">
+                        <number>4</number>
+                       </property>
+                       <property name="maximum">
+                        <double>100.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.100000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QDoubleSpinBox" name="ORD_IGR_jitter">
+                       <property name="focusPolicy">
+                        <enum>Qt::WheelFocus</enum>
+                       </property>
+                       <property name="toolTip">
+                        <string>introduces randomness into the dithering</string>
+                       </property>
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.010000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="label_39">
+                       <property name="text">
+                        <string>B</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1">
+                      <widget class="QDoubleSpinBox" name="ORD_IGR_b">
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="decimals">
+                        <number>4</number>
+                       </property>
+                       <property name="maximum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.010000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="0">
+                      <widget class="QLabel" name="label_43">
+                       <property name="text">
+                        <string>C</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="1">
+                      <widget class="QDoubleSpinBox" name="ORD_IGR_c">
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="decimals">
+                        <number>4</number>
+                       </property>
+                       <property name="maximum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.010000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QSpinBox" name="ORD_IGR_step">
+                       <property name="toolTip">
+                        <string>width and height of the dither matrix (in pixel)</string>
+                       </property>
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_41">
+                       <property name="text">
+                        <string>A</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageORD_VAR">
+                 <layout class="QGridLayout" name="gridLayout_21">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="ORD_VAR_groupBox">
+                    <property name="title">
+                     <string>Ordered Dither Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_20">
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_31">
+                       <property name="text">
+                        <string>Step</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QSpinBox" name="ORD_VAR_step">
+                       <property name="toolTip">
+                        <string>dither matrix width and height</string>
+                       </property>
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_30">
+                       <property name="text">
+                        <string>Jitter</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QDoubleSpinBox" name="ORD_VAR_jitter">
+                       <property name="toolTip">
+                        <string>introduces randomness into the dithering</string>
+                       </property>
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.010000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageALL">
+                 <layout class="QGridLayout" name="gridLayout_26">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="ALL_groupBox">
+                    <property name="title">
+                     <string>Allebach Dither Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_25">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_32">
+                       <property name="text">
+                        <string>Randomize</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QCheckBox" name="ALL_randomize">
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="pageGRD">
+                 <layout class="QGridLayout" name="gridLayout_27">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QGroupBox" name="GRD_groupBox">
+                    <property name="title">
+                     <string>Grid Dither Settings</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_24">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_34">
+                       <property name="text">
+                        <string>Grid width</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1">
+                      <widget class="QCheckBox" name="GRD_altAlgorithm">
+                       <property name="focusPolicy">
+                        <enum>Qt::NoFocus</enum>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_36">
+                       <property name="text">
+                        <string>Grid height</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QSpinBox" name="GRD_height">
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="minimum">
+                        <number>2</number>
+                       </property>
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="label_45">
+                       <property name="text">
+                        <string>Alt. Algorithm</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QSpinBox" name="GRD_width">
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="minimum">
+                        <number>2</number>
+                       </property>
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QSpinBox" name="GRD_minPixels">
+                       <property name="keyboardTracking">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_44">
+                       <property name="text">
+                        <string>Min pixels</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="imageSettingsContainer" native="true">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_19">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QGroupBox" name="groupBox_8">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>132</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>132</height>
+                 </size>
+                </property>
+                <property name="title">
+                 <string>Input Image Settings</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_17">
+                 <item row="1" column="1">
+                  <widget class="QSlider" name="contrastSlider">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>adjusts the image's contrast</string>
+                   </property>
+                   <property name="minimum">
+                    <number>-99</number>
+                   </property>
+                   <property name="tracking">
+                    <bool>false</bool>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_29">
+                   <property name="text">
+                    <string>Gamma</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QSlider" name="gammaSlider">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>adjusts the image's gamma</string>
+                   </property>
+                   <property name="minimum">
+                    <number>-99</number>
+                   </property>
+                   <property name="tracking">
+                    <bool>false</bool>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QPushButton" name="resetContrastButton">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>reset contrast to default value</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="2">
+                  <widget class="QPushButton" name="resetGammaButton">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>reset gamma to default value</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_27">
+                   <property name="text">
+                    <string>Brightness</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QSlider" name="brightnessSlider">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>adjusts the image's brightness</string>
+                   </property>
+                   <property name="minimum">
+                    <number>-99</number>
+                   </property>
+                   <property name="tracking">
+                    <bool>false</bool>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="2">
+                  <widget class="QPushButton" name="resetBrightnessButton">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>rest brightness to default value</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_28">
+                   <property name="text">
+                    <string>Contrast</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0" colspan="2">
+                  <widget class="QCheckBox" name="showOriginal">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>shows the original image</string>
+                   </property>
+                   <property name="text">
+                    <string>show original image</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>766</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSaveAs"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionQuickTour"/>
+    <addaction name="actionChangelog"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save as...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionQuickTour">
+   <property name="text">
+    <string>Help...</string>
+   </property>
+  </action>
+  <action name="actionChangelog">
+   <property name="text">
+    <string>Changelog...</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>graphicsview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>StackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header>stackedwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>treewidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ElideLabel</class>
+   <extends>QLabel</extends>
+   <header>elidelabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

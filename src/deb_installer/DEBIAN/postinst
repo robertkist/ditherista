@@ -1,0 +1,5 @@
+#! /bin/sh
+
+cp /usr/local/{{APPNAME}}/{{APPNAME_CS}}.desktop /usr/share/applications/{{APPNAME_CS}}.desktop
+chmod +x /usr/share/applications/{{APPNAME_CS}}.desktop
+exit 0

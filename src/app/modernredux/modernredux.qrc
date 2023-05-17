@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/modernredux/">
+        <file>stylesheet.qss</file>
+        <file>icons/handle_hor.svg</file>
+        <file>icons/handle_ver.svg</file>
+        <file>icons/tab-active.svg</file>
+        <file>icons/tab-inactive.svg</file>
+        <file>third_party/icons/arrow-down.svg</file>
+        <file>third_party/icons/arrow-left-disabled.svg</file>
+        <file>third_party/icons/arrow-left-pressed.svg</file>
+        <file>third_party/icons/arrow-left.svg</file>
+        <file>third_party/icons/arrow-right-disabled.svg</file>
+        <file>third_party/icons/arrow-right-pressed.svg</file>
+        <file>third_party/icons/arrow-right.svg</file>
+        <file>third_party/icons/arrow-up.svg</file>
+        <file>third_party/icons/button_cancel_pressed.svg</file>
+        <file>third_party/icons/button_cancel.svg</file>
+        <file>third_party/icons/emblem-error.svg</file>
+        <file>third_party/icons/emblem-important.svg</file>
+        <file>third_party/icons/emblem-information.svg</file>
+        <file>third_party/icons/emblem-question.svg</file>
+        <file>third_party/fonts/Roboto/Roboto-Black.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-BlackItalic.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-Bold.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-BoldItalic.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-Italic.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-Light.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-LightItalic.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-Medium.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-MediumItalic.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-Regular.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-Thin.ttf</file>
+        <file>third_party/fonts/Roboto/Roboto-ThinItalic.ttf</file>
+    </qresource>
+</RCC>

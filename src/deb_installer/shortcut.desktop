@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Terminal=false
+Exec=/usr/local/bin/{{APPNAME}}
+Name={{APPNAME_CS}}
+Icon=/usr/local/{{APPNAME}}/appicon.png
+Categories=Graphics;
