@@ -1,0 +1,7 @@
+#! /bin/sh
+
+if test -f /usr/share/applications/{{APPNAME_CS}}.desktop; then
+  echo "removing application shortcut"
+  rm /usr/share/applications/{{APPNAME_CS}}.desktop
+fi
+exit 0

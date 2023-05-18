@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/ico_allebach.svg</file>
+        <file>resources/ico_dbs.svg</file>
+        <file>resources/ico_dot.svg</file>
+        <file>resources/ico_grid.svg</file>
+        <file>resources/ico_error.svg</file>
+        <file>resources/ico_dotlippens.svg</file>
+        <file>resources/ico_ordered.svg</file>
+        <file>resources/ico_pattern.svg</file>
+        <file>resources/ico_riemersma.svg</file>
+        <file>resources/ico_threshold.svg</file>
+        <file>resources/ico_variable.svg</file>
+        <file>resources/img_done.svg</file>
+        <file>resources/img_notdone.svg</file>
+        <file>resources/appicon.png</file>
+        <file>resources/license.txt</file>
+        <file>resources/changelog.html</file>
+        <file>resources/help/help.html</file>
+        <file>resources/help/gui.png</file>
+        <file>resources/about.ini</file>
+        <file>resources/times.svg</file>
+        <file>resources/times_disabled.svg</file>
+        <file>application_en_US.qm</file>
+    </qresource>
+</RCC>

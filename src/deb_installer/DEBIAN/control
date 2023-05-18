@@ -1,0 +1,11 @@
+Source: {{APPNAME}}
+Version: {{APP_VERSION}}
+Section: base
+Priority: optional
+Build-Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libqt5core5a (>= 5.9.0~beta), libqt5gui5 (>= 5.8.0), libqt5svg5 (>= 5.6.0~beta), libqt5widgets5 (>= 5.2.0), libstdc++6 (>= 4.1.1)
+Maintainer: Robert Kist
+Package: {{APPNAME}}
+Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libqt5core5a (>= 5.9.0~beta), libqt5gui5 (>= 5.8.0), libqt5svg5 (>= 5.6.0~beta), libqt5widgets5 (>= 5.2.0), libstdc++6 (>= 4.1.1)
+Architecture: {{ARCH}}
+Description: A utility for dithering images
+Homepage: {{APP_HOMEPAGE}}

@@ -1,0 +1,258 @@
+<html>
+<style>
+    body td {
+        font-family: Calibri,Helvetica,Arial;
+        font-size: 15pt;
+        color: #cfcfcf;
+        padding: 38px;
+        margin: 38px;
+    }
+    h1 {
+        color: #dfdfdf;
+        margin-top: 40px;
+        margin-bottom: 6px;
+    }
+    h2 {
+        color: #dfdfdf;
+        margin-top: 20px;
+        margin-bottom: 6px;
+    }
+    h3 {
+        font-family: Calibri,Helvetica,Arial;
+        font-size: 15pt;
+        color: #cfcfcf;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        margin-left: 20px;
+    }
+    #mainheader1 {
+        margin-top: 0;
+    }
+    #mainheader2 {
+        margin-top: 0;
+        margin-bottom: 4px;
+    }
+    #bodytext {
+        line-height: 1.4;
+    }
+    #h3bodytext {
+        line-height: 1.4;
+        margin-left: 29px;
+    }
+</style>
+<body>
+
+<table cellspacing="0" cellpadding="0" border="0">
+    <tr><td>
+        <h1 id="mainheader1">GUI Overview</h1><br>
+        <img src=":/resources/help/gui.png" width="817" height="605">
+
+        <h1 id="mainheader2">Loading an Image</h1>
+        <div id="bodytext">
+        Images can be opened in 3 ways:</p>
+        <ul>
+            <li>Via the File -> Open... function in the menu bar.</li>
+            <li>Drag and drop a supported image into the Ditherista window.</li>
+            <li>Copy an image from the clipboard by pressing Command+V or choosing Edit -> Paste from the menu.</li>
+        </ul>
+        </div>
+
+        <h1>Dithering an Image</h1>
+        <div id="bodytext">
+        Choose a ditherer from the dither list on the right. Once dithered, Ditherista will cache the dithered image, so
+        you can return to previous dithers without re-calculation. The cache will be reset when the input image settings change.
+        You can also use the cursor keys to move from one ditherer to the next.<br>
+        The colored icon left to each ditherer shows what underlying algorithm a diterer uses.
+        </div>
+
+        <h1>Savinging an Image</h1>
+        <div id="bodytext">
+        The current dithered image can be saved in 3 ways:
+        <ul>
+            <li>Via the File -> Save and File -> Save As... functions in the menu bar.</li>
+            <li>Drag the image out of the Ditherista viewport into a folder in the Finder.</li>
+            <li>Copy the image to the clipboard by pressing Command+C or choosing Edit -> Copy from the menu.
+                Then paste the image into the target application.</li>
+        </ul>
+        </div>
+
+        <h1>Input Image Adjustments</h1>
+        <div id="bodytext">
+        Images are automatically adjusted when loaded - i.e. Ditherista will convert them from the sRGB color space to the
+        linear color space.<p>
+        Images can be further adjusted using the following controls:
+        <ul>
+            <li>Brightness</li>
+            <li>Contrast</li>
+            <li>Gamma level</li>
+        </ul>
+        Press the X button next to each control to reset the slider to its default value.<p>
+        Use the "show original image" toggle to preview the adjustments on the original image. This is preferrable when using
+        ditherers that take long to compute.
+        </div>
+
+        <h1>Ditherers</h1>
+        <h2>Allebach Dithering</h2>
+        <div id="bodytext">
+        Use the "Randomize" option to introduce some randomization into the dithering, to make it look less uniform.
+        </div>
+
+        <h2>DBS Dithering (Direct Binary Search)</h2>
+        <div id="bodytext">
+        The DBS ditherer is the slowest dithering algorithm. Choose from 7 different formulas for generating the underlying dithering matrix. Formulas with higher numbers will
+        result in more coarse dithers.
+        </div>
+
+        <h2>Dot Dithering</h2>
+        <div id="bodytext">
+        There are no user adjustable options for the Dot ditherers.<p>
+        <h3>&bull; Knuth</h3>
+        <h3>&bull; Mini Knuth</h3>
+        <h3>&bull; Optimized Knuth</h3>
+        <h3>&bull; Mese 8x8</h3>
+        <h3>&bull; Mese 16x16</h3>
+        <h3>&bull; GuoLiu 8x8</h3>
+        <h3>&bull; GuoLiu 16x16</h3>
+        <h3>&bull; Spiral</h3>
+        <h3>&bull; Inverted Spiral</h3>
+        </div>
+
+        <h2>Error Diffusion Dithering</h2>
+        <div id="bodytext">
+        Use the "Jitter" parameter to introduce randomization into the dithering, to make it less uniform. The "serpentine"
+        toggle changes how the algorithm processes the pixels in the image. For most error diffusion ditherers turning
+        "serpentine" on improves the dithering quality.<p>
+        <h3>&bull; Xot Diffusion</h3>
+        <h3>&bull; Diagonal Dither</h3>
+        <h3>&bull; Floyd Steinberg</h3>
+        <h3>&bull; Shiau Fan 3</h3>
+        <h3>&bull; Shiau Fan 2</h3>
+        <h3>&bull; Shiau Fan 1</h3>
+        <h3>&bull; Stucki</h3>
+        <h3>&bull; Error Diffusion 1D</h3>
+        <h3>&bull; Error Diffusion 2D</h3>
+        <h3>&bull; Fake Floyd Steinberg</h3>
+        <h3>&bull; Jarvis-Judice-Ninke</h3>
+        <h3>&bull; Atkinson</h3>
+        <h3>&bull; Burkes</h3>
+        <h3>&bull; Sierra 3</h3>
+        <h3>&bull; Sierra 2-Row</h3>
+        <h3>&bull; Sierra Lite</h3>
+        <h3>&bull; Steve Pigeon</h3>
+        <h3>&bull; Robert Kist</h3>
+        <h3>&bull; Stevenson-Arce</h3>
+        </div>
+
+        <h2>Grid Dithering</h2>
+        <div id="bodytext">
+        Grid dithering processes the image in pixel-blocks of a certain width and a certain height, which can be adjusted.
+        "Min Pixels" acts as a threshold. The higher it is set, the brighter a grid block will be. Use the "Alternate
+        Algorithm" toggle to switch between 2 different dithering formulas.
+        </div>
+
+        <h2>Lippens and Philips Dot Dithering</h2>
+        <div id="bodytext">
+        There are no user adjustable options for the Lippens and Philips Dot ditherers.<p>
+        <h3>&bull; Lippens 1</h3>
+        <h3>&bull; Lippens 2</h3>
+        <h3>&bull; Lippens 3</h3>
+        <h3>&bull; GuoLiu 16x16</h3>
+        <h3>&bull; Mese 16x16</h3>
+        <h3>&bull; Knuth</h3>
+        </div>
+
+        <h2>Ordered Dithering</h2>
+        <div id="bodytext">
+        Use the "Jitter" parameter to introduce randomization into the dithering, to make it less uniform.<p>
+        <h3>&bull; Blue Noise</h3>
+        <h3>&bull; Bayer 2x2</h3>
+        <h3>&bull; Bayer 3x3</h3>
+        <h3>&bull; Bayer 4x4</h3>
+        <h3>&bull; Bayer 8x8</h3>
+        <h3>&bull; Bayer 16x16</h3>
+        <h3>&bull; Bayer 32x32</h3>
+        <h3>&bull; Dispersed Dots 1</h3>
+        <h3>&bull; Dispersed Dots 2</h3>
+        <h3>&bull; Void Dispersed Dots</h3>
+        <h3>&bull; Non-Rectangular 1</h3>
+        <h3>&bull; Non-Rectangular 2</h3>
+        <h3>&bull; Non-Rectangular 3</h3>
+        <h3>&bull; Non-Rectangular 4</h3>
+        <h3>&bull; Ulichney</h3>
+        <h3>&bull; Ulichney Bayer 5x5</h3>
+        <h3>&bull; Clustered Dot 1</h3>
+        <h3>&bull; Clustered Dot 2</h3>
+        <h3>&bull; Clustered Dot 3</h3>
+        <h3>&bull; Clustered Dot 4</h3>
+        <h3>&bull; Clustered Dot 5</h3>
+        <h3>&bull; Clustered Dot 6</h3>
+        <h3>&bull; Clustered Dot 7</h3>
+        <h3>&bull; Clustered Dot 8</h3>
+        <h3>&bull; Clustered Dot 9</h3>
+        <h3>&bull; Clustered Dot 10</h3>
+        <h3>&bull; Clustered Dot 11</h3>
+        <h3>&bull; Central White-Point</h3>
+        <h3>&bull; Balanced White-Point</h3>
+        <h3>&bull; Diagonal Ordered</h3>
+        <h3>&bull; Ulichney Cluster Dot</h3>
+        <h3>&bull; Magic 5x5 Circle</h3>
+        <h3>&bull; Magic 6x6 Circle</h3>
+        <h3>&bull; Magic 7x7 Circle</h3>
+        <h3>&bull; Magic 4x4 45</h3>
+        <h3>&bull; Magic 6x6 45</h3>
+        <h3>&bull; Magic 8x8 45</h3>
+        <h3>&bull; Magic 4x4</h3>
+        <h3>&bull; Magic 6x6</h3>
+        <h3>&bull; Magic 8x8</h3>
+        <h3>&bull; Variable 2x2</h3>
+            <div id="h3bodytext">Use the "Step" parameter to adjust the dithering threshold.</div>
+        <h3>&bull; Variable 4x4</h3>
+            <div id="h3bodytext">Use the "Step" parameter to adjust the dithering threshold.</div>
+        <h3>&bull; Interleaved Gradient</h3>
+            <div id="h3bodytext">Use the "Step" parameter to adjust the dithering threshold. Use the A, B and C variables
+                to adjust the formula for generating the dither matrix to attain different dithering effects.</div>
+        </div>
+
+        <h2>Pattern Dithering</h2>
+        <div id="bodytext">
+        Pattern ditherers dither the image using pre-defined patterns. There are no user adjustable options for the
+        Pattner ditherers.<p>
+        <h3>&bull; 2x2 Pattern</h3>
+        <h3>&bull; 3x3 Pattern 1</h3>
+        <h3>&bull; 3x3 Pattern 2</h3>
+        <h3>&bull; 3x3 Pattern 3</h3>
+        <h3>&bull; 4x4 Pattern</h3>
+        <h3>&bull; 5x2 Pattern</h3>
+        </div>
+
+        <h2>Riemersma Dithering</h2>
+        <div id="bodytext">
+        Use the "Modified Algorithm" toggle to switch between the original Riemersma dithering algorithm and a modified
+        version.<p>
+        <h3>&bull; Hilbert Curve</h3>
+        <h3>&bull; Hilbert Mod Curve</h3>
+        <h3>&bull; Peano Curve</h3>
+        <h3>&bull; Fass 0 Curve</h3>
+        <h3>&bull; Fass 1 Curve</h3>
+        <h3>&bull; Fass 2 Curve</h3>
+        <h3>&bull; Gosper Curve</h3>
+        <h3>&bull; Fass Spiral</h3>
+        </div>
+
+        <h2>Threshold Dithering</h2>
+        <div id="bodytext">
+        You can set the "Threshold" manually or check the "Auto Threshold" toggle to let Ditherista find the mid-levels of
+        the source image automatically. Use the "Jitter" setting to introduce randomness into the dither.
+        </div>
+
+        <h2>Variable Coefficient Dithering</h2>
+        <div id="bodytext">
+        Use the "serpentine" toggle to change how the algorithm processes the pixels in the image.<p>
+        <h3>&bull; Ostromoukhov</h3>
+        <h3>&bull; ZhouFang</h3>
+        </div>
+    
+    </td></tr>
+    </table>
+</body>
+</html>
