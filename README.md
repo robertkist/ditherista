@@ -5,7 +5,7 @@
 Ditherista is a small Windows, Linux and macOS GUI application for creating black-and-white dithered images.
 It features easy import and export and over 90 different dithering methods.
 
-Main interface (on macOS):
+Main interface on macOS:
 
 <img src="https://user-images.githubusercontent.com/9162068/187024605-31804def-f5c6-4dde-a9f9-45882dd38836.png" width="618" height="492">
 
@@ -22,6 +22,14 @@ Main interface (on macOS):
 * Performs calculations in linear color space for increased accuracy
 * Supported image formats: PNG, JPG, BMP, GIF
 * Support for HiDPI and Retina displays
+
+Main interface on Windows:
+
+<img src="https://user-images.githubusercontent.com/9162068/239162099-6d5a0d75-64a4-4777-950d-688246225888.png" width="712" height="552">
+
+Main interface on Ubuntu:
+
+<img src="https://user-images.githubusercontent.com/9162068/239168026-074bb5ab-19a3-42f0-85d6-eee34eda32ec.png" width="707" height="502">
 
 Windows Installation
 --------------------
