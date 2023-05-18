@@ -8,7 +8,8 @@ MAC_QT_BIN_PATH=~/Qt/6.4.0/macos/bin
 
 APPNAME=ditherista
 APPNAME_CS=Ditherista
-APP_VERSION=2023.05.12a
+APP_YEAR=2023
+APP_VERSION=$(APP_YEAR).05.12a
 APP_HOMEPAGE=http://github.com/robertkist
 
 BUILDDIR=build
@@ -34,6 +35,7 @@ define fn_make_about_ini
 	echo title=$(APPNAME_CS)>>$(ABOUT_INI_PATH)
 	echo version=$(1)>>$(ABOUT_INI_PATH)
 	echo homepage=$(2)>>$(ABOUT_INI_PATH)
+	echo year=$(3)>>$(ABOUT_INI_PATH)
 endef
 	DEL=del
 	DELTREE=rd /s /q
@@ -60,6 +62,7 @@ define fn_make_about_ini
 	echo "title=$(APPNAME_CS)">>$(ABOUT_INI_PATH)
 	echo "version=$(1)">>$(ABOUT_INI_PATH)
 	echo "homepage=$(2)">>$(ABOUT_INI_PATH)
+	echo "year=$(3)">>$(ABOUT_INI_PATH)
 endef
 	DEL=rm
 	DELTREE=rm -Rf
@@ -127,7 +130,7 @@ installer: $(INSTALLERBUILD)
 .PHONY: app_build
 app_build:
 	$(call fn_mkdir,$(BUILDDIR))
-	$(call fn_make_about_ini,$(APP_VERSION),$(APP_HOMEPAGE))
+	$(call fn_make_about_ini,$(APP_VERSION),$(APP_HOMEPAGE),$(APP_YEAR))
 	$(HELP_COPY_CMD)
 	$(LUPDATE) src/app/application.pro
 	$(LRELEASE) src/app/application.pro
@@ -176,6 +179,7 @@ installer_deb:
 	sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postrm
 	sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
 	sed -i 's,{{APP_HOMEPAGE}},$(APP_HOMEPAGE),g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
+	sed -i 's,{{APP_YEAR}},$(APP_YEAR),g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
 	chmod 775 $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postrm
 	chmod 775 $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postinst
 	# copy app and launcher script

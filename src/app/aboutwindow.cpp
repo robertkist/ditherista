@@ -26,6 +26,7 @@ AboutWindow::AboutWindow(QWidget *parent) : QDialog(parent), ui(new Ui::AboutWin
     QTextStream in(&file);
     QString license = in.readAll();
     file.close();
+    license.replace("{{APP_YEAR}}", settings.value("about/year").toString());
     ui->licenseLabel->setText(license);
     // set Qt and libdither version
     ui->libditherVersion->setText(libdither_version());
