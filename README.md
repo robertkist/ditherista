@@ -9,9 +9,9 @@ Main interface (on macOS):
 
 <img src="https://user-images.githubusercontent.com/9162068/187024605-31804def-f5c6-4dde-a9f9-45882dd38836.png" width="618" height="492">
 
-### Downloads ###
+### Downloads for Windows, macOS and Linux ###
 
-Download: TODO INSERT LINK TO RELEASES
+[Download from Github Releases](https://github.com/robertkist/ditherista/releases)
 
 ### Ditherista Features ###
 
@@ -352,7 +352,7 @@ Ditherista supports the following dithering methods:
     <td><b>Lippens and Philips (Mese and Vaidyanathan 16x16) dot dithering</b></td>
 </tr><tr>
     <td><img src="https://user-images.githubusercontent.com/9162068/186294869-82444fbf-a81e-4aba-b3f5-135abffde96f.png"></td>
-    <td><img src="https://user-images.githubusercontent.com/9162068/186294869-82444fbf-a81e-4aba-b3f5-135abffde96f.png"></td>
+    <td><img src="https://user-images.githubusercontent.com/9162068/186294873-b4e12597-328a-404d-8149-6393270c1b7b.png"></td>
     <td><img src="https://user-images.githubusercontent.com/9162068/186294877-d7123015-a328-448f-a9b3-2018c640e1a1.png"></td>
 </tr><tr>
     <td><b>Lippens and Philips (Knuth) dot dithering</b></td>
