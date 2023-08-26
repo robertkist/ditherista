@@ -4,7 +4,7 @@ WIN_QT_BIN_PATH=C:\\Qt\\6.4.0\\mingw_64\bin
 WIN_MINGW_BIN_PATH=C:\\Qt\\Tools\\mingw1120_64\\bin
 WIN_NSIS_EXE=C:\Program Files (x86)\NSIS\makensis.exe
 # EDIT THE FOLLOWING PATH BELOW FOR MACOS:
-MAC_QT_BIN_PATH=~/Qt/6.4.0/macos/bin
+MAC_QT_BIN_PATH=~/Qt/6.5.2/macos/bin
 
 APPNAME=ditherista
 APPNAME_CS=Ditherista
@@ -70,7 +70,7 @@ endef
 	LIBDITHERPATH=$(LIBDITHER_ROOT)/dist/
 	HELP_PATH=./src/app/resources/help
 	ifeq ($(shell uname), Darwin)  # macOS
-		QMAKE=$(MAC_QT_BIN_PATH)/qmake
+		QMAKE=export LIBRARY_PATH=$$HOME:$$LIBRARY_PATH && $(MAC_QT_BIN_PATH)/qmake
 		LUPDATE=$(MAC_QT_BIN_PATH)/lupdate
 		LRELEASE=$(MAC_QT_BIN_PATH)/lrelease
 		DEPLOYQT=$(MAC_QT_BIN_PATH)/macdeployqt
