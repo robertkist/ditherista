@@ -15,11 +15,17 @@ Building for macOS
 ------------------
 
 Pre-Requisites:
-* Install Qt 6.3.1 or newer via the official Qt Online Installer. Do not use homebrew's Qt version -
+* Install Qt 6.6.1 or newer via the official Qt Online Installer. Do not use homebrew's Qt version -
   its deployment tool (```macdeployqt```) doesn't work properly, and you won't be able to build a fully
   functioning application bundle.
 * Downloads:
   * Qt Online Installer: https://www.qt.io/download-open-source
+
+Notes on Qt Version:
+* If a newer 6.x release is available, I recommend using the newest release, and only falling back to the
+  release specified above if there are problems. Why? Qt keeps fixing bugs regularly, and the Qt features 
+  used by Ditherista are relatively stable, so there is little risk for things to break when using a newer
+  Qt version.
 
 Building:
 1. clone the ditherista git repository: ```git clone --recursive https://github.com/robertkist/ditherista.git```
