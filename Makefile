@@ -4,12 +4,12 @@ WIN_QT_BIN_PATH=C:\\Qt\\6.4.0\\mingw_64\bin
 WIN_MINGW_BIN_PATH=C:\\Qt\\Tools\\mingw1120_64\\bin
 WIN_NSIS_EXE=C:\Program Files (x86)\NSIS\makensis.exe
 # EDIT THE FOLLOWING PATH BELOW FOR MACOS:
-MAC_QT_BIN_PATH=~/Qt/6.5.2/macos/bin
+MAC_QT_BIN_PATH=~/Qt/6.6.1/macos/bin
 
 APPNAME=ditherista
 APPNAME_CS=Ditherista
 APP_YEAR=2023
-APP_VERSION=$(APP_YEAR).05.12a
+APP_VERSION=$(APP_YEAR).05.12b
 APP_HOMEPAGE=http://github.com/robertkist
 
 BUILDDIR=build
