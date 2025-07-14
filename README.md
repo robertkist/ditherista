@@ -7,10 +7,13 @@ It features easy import and export and over 90 different dithering methods.
 
 Main interface on macOS:
 
-<img src="https://user-images.githubusercontent.com/9162068/187024605-31804def-f5c6-4dde-a9f9-45882dd38836.png" width="618" height="492">
+<img src="extra/screenshots/screenshot_01.png" width="891" height="657">
+
+<img src="extra/screenshots/screenshot_02.png" width="882" height="764">
 
 ### Downloads for Windows, macOS and Linux ###
 
+Both Ditherista Color (lastest version) and Ditherista Mono (previous version) can be found here:
 [Download from Github Releases](https://github.com/robertkist/ditherista/releases)
 
 ### Release Candidate ###
@@ -34,13 +37,11 @@ But there may still be slight UI glitches here and there.
 * Three different color quantization methods
 * Many different color-matching methods
 
-Main interface on Windows:
-
-<img src="https://user-images.githubusercontent.com/9162068/239162099-6d5a0d75-64a4-4777-950d-688246225888.png" width="712" height="552">
-
-Main interface on Ubuntu:
-
-<img src="https://user-images.githubusercontent.com/9162068/239168026-074bb5ab-19a3-42f0-85d6-eee34eda32ec.png" width="707" height="502">
+Known issues:
+- In a few cases there may still be GUI glitches (incorrect resizing, highlighting of UI elements)
+- Tetrapal color distance does not work properly on Windows (type conversion/signedness issue?)
+- LAB2000 may in some instances have slight glitches on Windows (type conversion issue?) 
+- Help file is not yet up-to-date
 
 Windows Installation
 --------------------
