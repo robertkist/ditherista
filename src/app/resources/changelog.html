@@ -2,34 +2,80 @@
 <style>
     body td {
         font-family: Calibri,Helvetica,Arial;
-        font-size: 12pt;
-        padding: 28px;
-        margin: 28px;
-        color: #dddddd;
+        font-size: 15pt;
+        color: #cfcfcf;
+        padding: 38px;
+        margin: 38px;
     }
     h1 {
-        color: #ffffff;
+        color: #dfdfdf;
         margin-top: 40px;
+        margin-bottom: 6px;
     }
     h2 {
-        color: #ffffff;
+        color: #dfdfdf;
         margin-top: 20px;
+        margin-bottom: 6px;
+    }
+    h3 {
+        font-family: Calibri,Helvetica,Arial;
+        font-size: 15pt;
+        color: #cfcfcf;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        margin-left: 20px;
+    }
+    #mainheader1 {
+        margin-top: 0;
+    }
+    #mainheader2 {
+        margin-top: 0;
+        margin-bottom: 4px;
+    }
+    #bodytext {
+        line-height: 1.4;
+    }
+    #h3bodytext {
+        line-height: 1.4;
+        margin-left: 29px;
     }
 </style>
 <body>
-<table><tr><td>
-    <h1>Changelog</h1>
-    <h2>Version 2023.05.12b</h2>
-    <ul>
-        <li>bugfix version for macOS Ventura and newer</li>
-        <li>fixes repeated permission pop-ups on macOS when using the file save dialog</li>
-    </ul>
-    <h2>Version 2023.05.12a</h2>
-        <ul>
-            <li>first release</li>
-        </ul>
 
-</td></tr></table>
+<table cellspacing="0" cellpadding="0" border="0">
+    <tr><td>
+        <h1>Changelog</h1>
+        <h2>Version 2025.07.14a_RC1</h2>
+        <div id="bodytext">
+        <ul>
+            <li>Color dithering has been added:</li>
+            <ul>
+                <li>Support for error diffusion and ordered color dithering.</li>
+                <li>Choose from 3 different color reduction methods.</li>
+                <li>Choose from 10 different color distance measurement methods.</li>
+                <li>Choose from multiple built-in color palettes from various computer systems.</li>
+                <li>Supports loading Paint.NET palettes, such as available at https://lospec.com</li>
+            </ul>
+            <li>Other colors than black and white can now be chosen for mono dithering.</li>
+            <li>Dithering of images with transparency is now supported.</li>
+            <li>You can now zoom the picture in ('+' and '=' keys) and out ('-' key) or use the mouse wheel to zoom.
+                Double clicking on the image, or pressing '.' resets the zoom.</li>
+            <li>Added numerical inputs for gamma, brightness and contrast.</li>
+            </li>
+            <li>Qt version has been updated</li>
+        </ul>
+        <h2>Version 2023.05.12b</h2>
+        <ul>
+            <li>Bugfix version for macOS Ventura and newer.</li>
+            <li>Fixes repeated permission pop-ups on macOS when using the file save dialog.</li>
+        </ul>
+        <h2>Version 2023.05.12a</h2>
+        <ul>
+            <li>First release</li>
+        </ul>
+        </div>
+    </td></tr>
+</table>
 </body>
 </html>
 

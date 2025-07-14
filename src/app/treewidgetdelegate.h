@@ -4,13 +4,17 @@
 
 #include <QStyledItemDelegate>
 
-class TreeWidgetDelegate : public QStyledItemDelegate {
+class TreeWidgetDelegate final : public QStyledItemDelegate {
 public:
-    TreeWidgetDelegate(QObject* parent);
+    /* attributes */
+    int selected_row = 0; // row number of the currently selected item
+    /* methods */
+    explicit TreeWidgetDelegate(QObject* parent);
     void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override;
-    int selected_row = 0;  // row number of the currently selected item
 private:
-    QPixmap ready, notready;
+    /* attributes */
+    QPixmap ready;
+    QPixmap notReady;
 };
 
 #endif  // TREEWIDGETDELEGATE_H

@@ -1,3 +1,4 @@
 [submodule "libdither"]
 	path = libdither
 	url = https://github.com/robertkist/libdither.git
+	branch = main

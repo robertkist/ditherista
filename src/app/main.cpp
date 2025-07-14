@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include <QTranslator>
-#include <QDebug>
+#include <QApplication>
+
 
 int main(int argc, char* argv[]) {
 #if defined(__APPLE__) && defined(__MACH__)
@@ -18,7 +19,7 @@ int main(int argc, char* argv[]) {
     bool translatorLoaded = false;
     // load a translator for the current system locale
     const QStringList uiLanguages = QLocale::system().uiLanguages();
-    for (const QString &locale : uiLanguages) {
+    for (const QString& locale : uiLanguages) {
         const QString baseName = "application_" + QLocale(locale).name();
         if (translator.load(":/" + baseName)) {
             a.installTranslator(&translator);

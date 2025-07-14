@@ -5,6 +5,8 @@
         <file>icons/handle_ver.svg</file>
         <file>icons/tab-active.svg</file>
         <file>icons/tab-inactive.svg</file>
+        <file>third_party/icons/box.svg</file>
+        <file>third_party/icons/box_focus.svg</file>
         <file>third_party/icons/arrow-down.svg</file>
         <file>third_party/icons/arrow-left-disabled.svg</file>
         <file>third_party/icons/arrow-left-pressed.svg</file>

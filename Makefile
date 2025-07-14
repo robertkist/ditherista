@@ -1,15 +1,15 @@
 # EDIT THE FOLLOWING 3 PATHS BELOW ON WINDOWS:
 # paths are the default install locations for Qt/MingW and Nullsoft Installer Maker (NSIS)
-WIN_QT_BIN_PATH=C:\\Qt\\6.4.0\\mingw_64\bin
-WIN_MINGW_BIN_PATH=C:\\Qt\\Tools\\mingw1120_64\\bin
+WIN_QT_BIN_PATH=C:\\Qt\\6.9.1\\mingw_64\bin
+WIN_MINGW_BIN_PATH=C:\\Qt\\Tools\\mingw1310_64\\bin
 WIN_NSIS_EXE=C:\Program Files (x86)\NSIS\makensis.exe
 # EDIT THE FOLLOWING PATH BELOW FOR MACOS:
-MAC_QT_BIN_PATH=~/Qt/6.6.1/macos/bin
+MAC_QT_BIN_PATH=~/Qt/6.9.1/macos/bin
 
 APPNAME=ditherista
 APPNAME_CS=Ditherista
-APP_YEAR=2023
-APP_VERSION=$(APP_YEAR).05.12b
+APP_YEAR=2025
+APP_VERSION=$(APP_YEAR).07.14a_RC1
 APP_HOMEPAGE=http://github.com/robertkist
 
 BUILDDIR=build
@@ -84,7 +84,7 @@ endef
 			endif
 		endif
 		DMGNAME=$(APPNAME)_$(APP_VERSION)_$(ARCH)
-		HELP_COPY_CMD=cp -R ./src/help/en_macos $(HELP_PATH)
+		HELP_COPY_CMD=cp -R ./src/help/en_macos/ $(HELP_PATH)
 	else  # other Unix / Linux
 		QMAKE=qmake
 		LUPDATE=lupdate
@@ -95,7 +95,7 @@ endef
 		INSTALLERBUILD=installer_deb
 		ARCH=$(shell dpkg --print-architecture)
 		DEBNAME=$(APPNAME)_$(APP_VERSION)-1_$(ARCH)
-		HELP_COPY_CMD=cp -R ./src/help/en_linux $(HELP_PATH)
+		HELP_COPY_CMD=cp -R ./src/help/en_linux/ $(HELP_PATH)
 	endif
 endif
 

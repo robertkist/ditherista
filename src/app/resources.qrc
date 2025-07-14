@@ -13,14 +13,72 @@
         <file>resources/ico_variable.svg</file>
         <file>resources/img_done.svg</file>
         <file>resources/img_notdone.svg</file>
+        <file>resources/img_status_error.svg</file>
+        <file>resources/img_status_ok.svg</file>
+        <file>resources/img_spacer.svg</file>
         <file>resources/appicon.png</file>
         <file>resources/license.txt</file>
         <file>resources/changelog.html</file>
         <file>resources/help/help.html</file>
+        <file>resources/help/mono_dithering.html</file>
+        <file>resources/help/color_dithering.html</file>
+        <file>resources/help/palette.html</file>
         <file>resources/help/gui.png</file>
         <file>resources/about.ini</file>
         <file>resources/times.svg</file>
         <file>resources/times_disabled.svg</file>
         <file>application_en_US.qm</file>
+        <file>resources/palettes/p_c64.pal</file>
+        <file>resources/palettes/p_cga0.pal</file>
+        <file>resources/palettes/p_cga1.pal</file>
+        <file>resources/palettes/p_cga2.pal</file>
+        <file>resources/palettes/p_ega.pal</file>
+        <file>resources/palettes/p_gameboy.pal</file>
+        <file>resources/palettes/p_gameboy_pocket.pal</file>
+        <file>resources/palettes/p_mac16.pal</file>
+        <file>resources/palettes/p_mac256.pal</file>
+        <file>resources/palettes/p_mspaint.pal</file>
+        <file>resources/palettes/p_mspaint_vista.pal</file>
+        <file>resources/palettes/p_mspaint_win7.pal</file>
+        <file>resources/palettes/p_msx.pal</file>
+        <file>resources/palettes/p_nes.pal</file>
+        <file>resources/palettes/p_pico8.pal</file>
+        <file>resources/palettes/p_playdate.pal</file>
+        <file>resources/palettes/p_sms.pal</file>
+        <file>resources/palettes/p_win95.pal</file>
+        <file>resources/palettes/p_zx.pal</file>
+        <file>resources/palettes/g_bw.pal</file>
+        <file>resources/palettes/g_grayscale.pal</file>
+        <file>resources/palettes/g_citrink.pal</file>
+        <file>resources/palettes/g_paper8.pal</file>
+        <file>resources/palettes/g_spacedust9.pal</file>
+        <file>resources/palettes/p_trs80_1.pal</file>
+        <file>resources/palettes/p_trs80_2.pal</file>
+        <file>resources/palettes/p_win_16col.pal</file>
+        <file>resources/palettes/p_msx2.pal</file>
+        <file>resources/palettes/p_riscos.pal</file>
+        <file>resources/palettes/p_samcoupe.pal</file>
+        <file>resources/palettes/p_6rgb.pal</file>
+        <file>resources/palettes/p_685rgb.pal</file>
+        <file>resources/palettes/p_676rgb.pal</file>
+        <file>resources/palettes/p_884rgb.pal</file>
+        <file>resources/palettes/p_magnavox.pal</file>
+        <file>resources/palettes/p_intellivision.pal</file>
+        <file>resources/palettes/p_c64_2.pal</file>
+        <file>resources/palettes/p_vic20.pal</file>
+        <file>resources/palettes/p_teletext.pal</file>
+        <file>resources/palettes/p_rgb_4bit.pal</file>
+        <file>resources/palettes/p_rgb_6bit.pal</file>
+        <file>resources/palettes/p_rgb_9bit.pal</file>
+        <file>resources/palettes/p_amstrad.pal</file>
+        <file>resources/palettes/p_aa.pal</file>
+        <file>resources/palettes/p_colecovision.pal</file>
+        <file>resources/palettes/p_degas_elite.pal</file>
+        <file>resources/palettes/d_paint_32.pal</file>
+        <file>resources/palettes/d_paint_ehb.pal</file>
+        <file>resources/palettes/d_paint_256.pal</file>
+        <file>resources/palettes/p_fairchild.pal</file>
+        <file>resources/palettes/p_magicwb.pal</file>
+        <file>resources/palettes/p_micrografx.pal</file>
     </qresource>
 </RCC>

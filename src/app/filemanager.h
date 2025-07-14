@@ -4,15 +4,21 @@
 
 #include <QObject>
 
-class FileManager : public QObject {
+class FileManager final : public QObject {
     Q_OBJECT
 public:
+    /* methods */
     FileManager();
     bool getOpenFileName(QString* fileName);
+    void setDirectory(const QString &directory);
+    [[nodiscard]] bool isDefaultDirectory() const;
+    void clearCurrentFileName();
     QString fileSave(bool saveAs, QString suggestedFileName);
 private:
-    QString fileIoLocation = "";
-    QString currentFileName = "";
+    /* attributes */
+    bool defaultDirectory = true;
+    QString fileIoLocation;
+    QString currentFileName;
 };
 
 #endif // FILEMANAGER_H

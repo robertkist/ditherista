@@ -1,3 +1,8 @@
+Contents:
+* Credits & Thanks
+* License
+* 3rd Party Licenses
+
 ************************
 *** CREDITS & THANKS ***
 ************************
@@ -6,6 +11,8 @@ Thanks to...
 
 Sankar Srinivasan for letting me port his Direct-Binary-Search dither code.
 (https://github.com/SankarSrin)
+
+Xiaolin Wu (wu@csd.uwo.ca) for the Wu color quantization.
 
 Libcaca for their extensive research into dithering methods
 (http://caca.zoy.org/study/index.html).
@@ -18,8 +25,30 @@ Job van der Zwan for sharing his interleved gradient noise code
 
 Surma.dev and Tenner Helland for inspiring me with their posts
 (https://surma.dev/things/ditherpunk/index.html)
-(https://tannerhelland.com/2012/12/28/
- dithering-eleven-algorithms-source-code.html)
+
+Tanner Helland
+(https://tannerhelland.com/2012/12/28/dithering-eleven-algorithms-source-code.html)
+
+Amiga Pixels (64) Palette by Malo
+(https://lospec.com/palette-list/amiga-pixels-64)
+
+Windows 95 - 256 colours Palette by Chris Moes
+(https://lospec.com/palette-list/windows-95-256-colours)
+
+Macintosh 8-Bit System Palette Palette by vga256
+(https://lospec.com/palette-list/macintosh-8-bit-system-palette)
+
+MSPaint Windows 7 Palette by CopheeMoth
+(https://lospec.com/palette-list/mspaint-windows-7)
+
+SPACE DUST 9 Palette by Hana
+(https://lospec.com/palette-list/space-dust-9)
+
+Paper 8 Palette by Frosty Rabbit
+(https://lospec.com/palette-list/paper-8)
+
+Citrink Palette by Inkpendude
+(https://lospec.com/palette-list/citrink)
 
 ************************
 ***     LICENSE      ***
@@ -222,6 +251,86 @@ permanent authorization for you to choose that version for the
 Library.
 
 --------------------------------------------------------------------------------
+
+uthash.h (25.5.2025)
+
+Copyright (c) 2005-2018, Troy D. Hanson  http://troydhanson.github.com/uthash/
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+--------------------------------------------------------------------------------
+
+Tetrapal (26.5.2025)
+
+MIT License
+
+Copyright (c) 2023 matejlou
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+
+kdtree (25.5.2025)
+
+Copyright (C) 2007-2011 John Tsiombikas <nuclear@member.fsf.org>
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+3. The name of the author may not be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGE.
+
+--------------------------------------------------------------------------------
+
 macOS installer DMG background adapted from image (c) 2012 by Brian Legate
 https://www.flickr.com/photos/brianpdx/7176367881
 
@@ -234,6 +343,7 @@ Gray Short-fur Cat Near White Door by Salina Tran, licensed under CC license.
 https://www.pexels.com/photo/gray-short-fur-cat-near-white-door-794590/
 
 --------------------------------------------------------------------------------
+
 FREE Blue Noise Textures by Christoph Peters
 http://momentsingraphics.de/BlueNoise.html
 
@@ -343,6 +453,7 @@ effect of CC0 on those rights.
     use of the Work.
 
 --------------------------------------------------------------------------------
+
 Roboto Font (c) Google, Christian Robertson
 https://github.com/googlefonts/roboto
 
@@ -524,6 +635,7 @@ https://github.com/googlefonts/roboto
    END OF TERMS AND CONDITIONS
 
 --------------------------------------------------------------------------------
+
 PopOS Icon Theme (c) System76, Sam Hewitt
 https://github.com/pop-os/icon-theme
 
@@ -930,6 +1042,7 @@ Section 8 -- Interpretation.
      processes of any jurisdiction or authority.
 
 --------------------------------------------------------------------------------
+
 Parts of dark theme for Qt:
 https://github.com/gmarull/qtmodern
 

@@ -1,11 +1,13 @@
 #include "treewidgetdelegate.h"
 #include <QPainter>
 
-const int ICON_DIMENSION_PX = 16;
+// https://stackoverflow.com/questions/7175333/how-to-create-delegate-for-qtreewidget
+
+constexpr int ICON_DIMENSION_PX = 16;
 
 TreeWidgetDelegate::TreeWidgetDelegate(QObject* parent) : QStyledItemDelegate(parent) {
     ready = QPixmap(":/resources/img_done.svg");
-    notready = QPixmap(":/resources/img_notdone.svg");
+    notReady = QPixmap(":/resources/img_notdone.svg");
 };
 
 void TreeWidgetDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const {
@@ -15,7 +17,6 @@ void TreeWidgetDelegate::paint(QPainter* painter, const QStyleOptionViewItem& op
      * due to the auto-expanding stacked widget that is jostling things around (the treewidget
      * itself isn't confused; it always knows what really has been clicked - it's just the delegate that's
      * the problem... */
-
     painter->setRenderHint(QPainter::Antialiasing, true);
     // draw blue background for currently selected row
     if(index.row() == selected_row && option.state & QStyle::State_Enabled) {  // this was using option.state & QStyle::State_Selected
@@ -25,18 +26,19 @@ void TreeWidgetDelegate::paint(QPainter* painter, const QStyleOptionViewItem& op
     }
     // draw row contents
     QStyleOptionViewItem itemOption(option);
-    if(option.state & QStyle::State_Enabled)
+    if(option.state & QStyle::State_Enabled) {
         itemOption.state &= QStyle::State_Enabled;
-    else
+    } else {
         itemOption.state = QStyle::State_None;
-
+    }
     QStyledItemDelegate::paint(painter, itemOption, index);
     // draw icon when image has been dithered / not dithered
     int dim = ICON_DIMENSION_PX; // image dimensions
-    int ypos = option.rect.y() + (int)((option.rect.height() - dim) * 0.5);
+    int ypos = option.rect.y() + static_cast<int>((option.rect.height() - dim) * 0.5f);
     int xpos = option.rect.width() - dim - 4;
-    if(index.data(Qt::UserRole).toBool())
+    if(index.data(Qt::UserRole).toBool()) {
         painter->drawPixmap(QRect(xpos, ypos, dim, dim), ready);
-    else
-        painter->drawPixmap(QRect(xpos, ypos, dim, dim), notready);
+    } else {
+        painter->drawPixmap(QRect(xpos, ypos, dim, dim), notReady);
+    }
 }

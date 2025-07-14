@@ -14,6 +14,35 @@ QSizeGrip {
 
 QCheckBox::indicator {
     background: palette(dark);
+    width: 14px;
+    height: 14px;
+    border: 1px solid palette(button);
+}
+
+QCheckBox::indicator:checked {
+    background: palette(dark);
+    background-image: url(:/modernredux/third_party/icons/box_focus.svg);
+}
+
+QCheckBox::indicator:checked:disabled {
+    background: palette(dark);
+    background-image: url(:/modernredux/third_party/icons/box.svg);
+}
+
+/*
+// CURRENTLY NOT SUPPORTED
+QCheckBox::indicator:indeterminate {
+    background: palette(midlight);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+    background: palette(disabled);
+}
+*/
+
+/*
+QCheckBox::indicator {
+    background: palette(dark);
     width: 8px;
     height: 8px;
     border: 3px solid palette(dark);
@@ -34,15 +63,16 @@ QCheckBox::indicator:indeterminate {
 QCheckBox::indicator:indeterminate:disabled {
     background: palette(disabled);
 }
+*/
 
 /* COMBO-BOX */
 
 QComboBox {
     background: palette(button);
     border-radius: 5px;
-    height: 22px;
-    min-height: 22px;
-    max-height: 22px;
+    height: 20px;
+    min-height: 20px;
+    max-height: 20px;
     padding-left: 5px;
     padding-right: 10px;
     selection-background-color: palette(highlight);
@@ -59,30 +89,30 @@ QComboBox:disabled {
 
 QComboBox:editable:disabled {
      background: palette(dark);
-     height: 22px;
-     min-height: 22px;
-     max-height: 22px;
+     height: 20px;
+     min-height: 20px;
+     max-height: 20px;
      border: 1px solid palette(dark);;
 }
 
 QComboBox:editable {
      background: palette(dark);
-     height: 22px;
-     min-height: 22px;
-     max-height: 22px;
+     height: 20px;
+     min-height: 20px;
+     max-height: 20px;
      border: 2px solid transparent;
 }
 
 QComboBox:editable:focus {
     border-radius: 5px;
-    height: 22px;
-    min-height: 22px;
-    max-height: 22px;
+    height: 20px;
+    min-height: 20px;
+    max-height: 20px;
     border: 2px solid palette(highlight);
 }
 
 QComboBox:drop-down, QComboBox::drop-down:editable {
-    height: 24px;
+    height: 22px;
     subcontrol-origin: margin;
     subcontrol-position: center right;
     background: palette(button);
@@ -93,7 +123,7 @@ QComboBox:drop-down, QComboBox::drop-down:editable {
 }
 
 QComboBox::drop-down:editable:focus {
-    height: 22px;
+    height: 20px;
     subcontrol-origin: margin;
     subcontrol-position: center right;
     background: palette(button);
@@ -105,7 +135,7 @@ QComboBox::drop-down:editable:focus {
 }
 
 QComboBox::drop-down:disabled {
-    height: 24px;
+    height: 22px;
     subcontrol-origin: margin;
     subcontrol-position: center right;
     background: transparent;
@@ -116,7 +146,7 @@ QComboBox::drop-down:disabled {
 }
 
 QComboBox::drop-down:pressed {
-    height: 24px;
+    height: 22px;
     subcontrol-origin: margin;
     subcontrol-position: center right;
     background: palette(highlight);
@@ -202,18 +232,20 @@ QTreeView QHeaderView::section:last {
 QLineEdit {
     background: palette(dark);
     border-radius: 5px;
-    height: 22px;
-    min-height: 22px;
-    max-height: 22px;
+    height: 20px;
+    min-height: 20px;
+    max-height: 20px;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
-    border: 2px solid transparent;
+    padding-left: 1px;
+    border: 1px solid palette(button);
 }
 
 QLineEdit:focus {
     border-radius: 5px;
+    padding-left: 0px;
     border: 2px solid palette(highlight);
 }
 
@@ -255,16 +287,16 @@ QPushButton {
     background: palette(button);
     border-radius: 5px;
 
-    height: 24px;
-    min-height: 24px;
-    max-height: 24px;
+    height: 22px;
+    min-height: 22px;
+    max-height: 22px;
 
     margin-top: 1px;
     margin-bottom: 1px;
     margin-left: 1px;
     margin-right: 1px;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 QPushButton:flat {
@@ -276,9 +308,9 @@ QPushButton:checked {
     background: palette(base);
     border-radius: 5px;
 
-    height: 24px;
-    min-height: 24px;
-    max-height: 24px;
+    height: 22px;
+    min-height: 22px;
+    max-height: 22px;
 
     margin-top: 1px;
     margin-bottom: 1px;
@@ -418,7 +450,7 @@ QSlider::handle:disabled {
 }
 
 QSlider::add-page:horizontal {
-    background: palette(base);
+    background: palette(dark);
     border-radius: 3px;
 }
 
@@ -435,20 +467,22 @@ QSlider::sub-page:horizontal:disabled {
 /* SPIN-BOX */
 
 QSpinBox, QDoubleSpinBox, QDateTimeEdit {
-    background: palette(button);
-    border-radius: 5px;
-    height: 22px;
-    min-height: 22px;
-    max-height: 22px;
-    padding-left: 10px;
-    padding-right: 10px;
+    background: palette(dark);
+    min-height: 20px;
+    max-height: 20px;
+    padding-left: 2px;
+    padding-right: 0px;
     selection-background-color: palette(highlight);
-    border: 2px solid transparent;
-    margin-left: 0px;
-    margin-right: 0px;
+    border-radius: 5px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+    border:1px solid palette(midlight);
 }
 
 QSpinBox:disabled, QDoubleSpinBox:disabled, QDateTimeEdit:disabled {
+    background: palette(button);
     border-radius: 5px;
     margin-top: 1px;
     margin-bottom: 1px;
@@ -459,42 +493,62 @@ QSpinBox:disabled, QDoubleSpinBox:disabled, QDateTimeEdit:disabled {
 }
 
 QSpinBox::down-button, QDoubleSpinBox::down-button, QDateTimeEdit::down-button {
+    background: palette(button);
+    margin-bottom: 1px;
+    margin-right: 1px;
     subcontrol-origin: margin;
     subcontrol-position: bottom right;
+    border-bottom-right-radius: 5px;
     border-image: url(:/modernredux/third_party/icons/arrow-down.svg) 1;
 }
 
+QSpinBox::down-button:disabled, QDoubleSpinBox::down-button:disabled, QDateTimeEdit::down-button:disabled {
+    background: palette(button);
+    margin-bottom: 1px;
+    margin-right: 1px;
+    subcontrol-origin: margin;
+    subcontrol-position: bottom right;
+    border-bottom-right-radius: 5px;
+    border-image: url(:/modernredux/third_party/icons/arrow-down.svg) 1;
+}
+
+QSpinBox::down-button:pressed, QDoubleSpinBox::down-button:pressed, QDateTimeEdit::down-button:pressed {
+    background: palette(button);
+    margin-bottom: 1px;
+    margin-right: 1px;
+    subcontrol-origin: margin;
+    subcontrol-position: bottom right;
+    border-bottom-right-radius: 5px;
+    background-color: palette(highlight);
+}
+
 QSpinBox::up-button, QDoubleSpinBox::up-button, QDateTimeEdit::up-button {
+    background: palette(button);
+    margin-top: 1px;
+    margin-right: 1px;
     subcontrol-origin: margin;
     subcontrol-position: top right;
+    border-top-right-radius: 5px;
     border-image: url(:/modernredux/third_party/icons/arrow-up.svg) 1;
 }
 
 QSpinBox::up-button:disabled, QDoubleSpinBox::up-button:disabled, QDateTimeEdit::up-button:disabled {
-    subcontrol-origin: margin;
-    subcontrol-position: top right;
-    border-image: url(:/modernredux/third_party/icons/arrow-up.svg) 1;
-}
-
-QSpinBox::down-button:disabled, QDoubleSpinBox::down-button:disabled, QDateTimeEdit::down-button:disabled {
-    subcontrol-origin: margin;
-    subcontrol-position: bottom right;
-    border-image: url(:/modernredux/third_party/icons/arrow-down.svg) 1;
-}
-
-QSpinBox::up-button:pressed, QDoubleSpinBox::up-button-pressed, QDateTimeEdit::up-button:pressed {
-    margin: 1px;
+    background: palette(button);
+    margin-top: 1px;
+    margin-right: 1px;
     subcontrol-origin: margin;
     subcontrol-position: top right;
     border-top-right-radius: 5px;
-    background-color: palette(highlight);
+    border-image: url(:/modernredux/third_party/icons/arrow-up.svg) 1;
 }
 
-QSpinBox::down-button:pressed, QDoubleSpinBox::down-button:pressed, QDateTimeEdit::down-button:pressed {
-    margin: 1px;
+QSpinBox::up-button:pressed, QDoubleSpinBox::up-button:pressed, QDateTimeEdit::up-button:pressed {
+    background: palette(button);
+    margin-top: 1px;
+    margin-right: 1px;
     subcontrol-origin: margin;
-    subcontrol-position: bottom right;
-    border-bottom-right-radius: 5px;
+    subcontrol-position: top right;
+    border-top-right-radius: 5px;
     background-color: palette(highlight);
 }
 
