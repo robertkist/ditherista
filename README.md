@@ -39,8 +39,7 @@ But there may still be slight UI glitches here and there.
 
 Known issues:
 - In a few cases there may still be GUI glitches (incorrect resizing, highlighting of UI elements)
-- Tetrapal color distance does not work properly on Windows (type conversion/signedness issue?)
-- LAB2000 may in some instances have slight glitches on Windows (type conversion issue?) 
+- LAB2000 may in some instances have slight glitches on Windows (under investigation if false alarm or real issue)
 - Help file is not yet up-to-date
 
 Windows Installation
