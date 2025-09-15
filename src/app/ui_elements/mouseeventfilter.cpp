@@ -24,7 +24,8 @@ bool MouseEventFilter::eventFilter(QObject* obj, QEvent* event) {
         switch (event->type()) {
             case QEvent::KeyPress: {
                 QKeyEvent *keyEvent = (QKeyEvent *) event;
-                if (keyEvent->key() == Qt::Key_Down || keyEvent->key() == Qt::Key_Up) {
+                if (keyEvent->key() == Qt::Key_Down || keyEvent->key() == Qt::Key_Up ||
+                        keyEvent->key() == Qt::Key_Plus || keyEvent->key() == Qt::Key_Minus) {
                     emit keyEventSignal(keyEvent);
                     return true;
                 }

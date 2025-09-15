@@ -54,6 +54,7 @@ public:
     /* methods */
     explicit MainWindow(QWidget* parent = nullptr);
     void resizeEvent(QResizeEvent* event) override;
+//    void keyPressEvent(QKeyEvent* event) override;
     ~MainWindow() override;
 private:
     /* attributes */
@@ -246,6 +247,10 @@ private slots:
     void resetHueWeightButtonClickedSlot();
     void resetChromaWeightButtonClickedSlot();
     void resetValueWeightButtonClickedSlot();
+
+    void zoomLevelChangedSlot(int zoomLevel);
+    void zoomLevelComboCurrentIndexChangedSlot(int index);
+    void zoomLevelEditingFinishedSlot();
 };
 
 #endif // MAINWINDOW_H

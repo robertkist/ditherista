@@ -342,6 +342,7 @@ void MainWindow::loadImage(const QImage* image) {
     // reset UI
     notification->cancel();
     ui->graphicsView->resetScene(image->width(), image->height());
+    ui->resolutionLabel->setText(QString("%1 \u00D7 %2").arg(image->width()).arg(image->height()));
 
     // set mono image
     imageHashMono.setSourceImage(image);

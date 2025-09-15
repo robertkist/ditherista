@@ -46,10 +46,111 @@
     <tr><td>
         <h1>Palette Settings</h1>
         <div id="bodytext">
-
-            (Release Candidate version: help is still missing)
-
+            The <u>Palette</u> tab allows defining color palettes for both Mono and Color dithering.
         </div>
+
+        <h1>Mono Palette Settings</h1>
+        <div id="bodytext">
+            In the <u>Mono Palette</u> section you can pick different colors than just black and white for mono dithering.
+            Pressing the <u>X</u> button resets the colors to black and white.
+        </div>
+
+        <h1>Color Palette Settings</h1>
+        <div id="bodytext">
+            The palette and the color comparison method play a very important role when it comes to the quality of
+            color dithering. The better the target palette matches the different colors and brightness of the source
+            image, the better the dithering result will be.<p>
+
+            <u>Palette source</u> - lets you pick the target palette the dithered image should use:
+            <ul>
+                <li><u>built-in</u>: allows you to choose a pre-defined palette, such as used in classic computer
+                    systems and video game consoles.</li>
+                <li><u>from file</u>: allows you to load a Paint.NET compatible palette. You can get such palettes
+                    from <a href="https://lospec.com">lospec.com</a> or create your own using a text editor.</li>
+                <li><u>reduced</u>: creates a palette with a limited amount of colors from the current image.</li>
+                <li><u>custom</u>: this entry will become visible when a color of the target palette has been edited.</li>
+            </ul>
+
+            <u>Color comparison</u> - lets you pick a method to match the source image's original pixel colors to the
+            next closest color in the target palette (as chosen in <u>Palette source</u>):
+            <ul>
+                <li><u>LAB '76</u>: A fairly fast method using the LAB color space. Sometimes the results are good
+                    but for best quality pick LAB '94 or LAB 2000.</li>
+                <li><u>LAB '94</u>: A method offering a good balance between speed and quality, using the LAB color space.</li>
+                <li><u>LAB 2000</u>: Offers the best quality in situations where the reduced palette matches the original
+                    palette well. Can be slow.</li>
+                <li><u>sRGB</u>: The best all-around color matching method, using the sRGB color space.</li>
+                <li><u>sRGB CCIR</u>: Same as <u>sRGB</u>. Takes human perception into account. Sometimes better than sRGB.</li>
+                <li><u>HSV</u>: Uses the HSV color space. May not work properly with small palettes where the colors do
+                    not match the source image well.</li>
+                <li><u>Luminance</u>: A great choice for uniform color palettes with a color gradients. Color matching is
+                    less accurate than in other methods, but it get very pretty looking results with a gradient palette.</li>
+                <li><u>Linear</u>: Compares colors in linear space; generally not recommended, but may work well for
+                    palettes which have few colors and do not match the source image's palette well.</li>
+                <li><u>Linear CCIR</u>: Same as <u>Linear</u> but takes human perception into account.</li>
+                <li><u>Tetrapal</u>: A method intended for ordered dithering, but it also works for other dithering approaches.</li>
+            </ul>
+        </div>
+
+        <h1>Loading Palettes from File</h1>
+        <div id="bodytext">
+            When the <u>Palette source</u> is set to <u>from file</u>, you can press the <u>Browse</u> button and load a
+            Paint.NET compatible palette file. You can get such palettes from <a href="https://lospec.com">lospec.com</a>
+            or create your own using a text editor.</li>
+            You can also type or paste the path to a Paint.NET palette file into the text field next to the <u>Browse</u>
+            button.
+        </div>
+
+        <h1>Creating a Reduced Palette</h1>
+        <div id="bodytext">
+            When the <u>Palette source</u> is set to <u>reduced</u> you can specify the number of colors your target palette
+            should have into the input field next to <u>Colors</u>. You can then choose a <u>Color reduction mode</u>:
+            <ul>
+                <li><u>Median Cut</u>: The best all-around method. It's fast and generally quite accurate.</li>
+                <li><u>Wu</u>: Often gives better results than Median Cut, but not always. It's also slower.</li>
+                <li><u>KD-Tree</u>: Generally gives better results than Median Cut. It's the slowest method.</li>
+            </ul>
+
+            In some cases, for example when the number of target colors is low, the target palettes colors may not be
+            well distributed. In this case you can turn on <u>Count unique pixels</u>. This will not just take into account
+            the overall number of unique colors in the source image, but also how many pixels there are of each color. Note
+            that this makes the color reduction slower!<p>
+
+            In some cases, for example when the number of target colors is low, it can help to explicitly include extreme
+            colors, e.g. very dark, very bright, very blue, very red, etc. colors:
+            <ul>
+                <li><u>Include brightest / darkest</u>: includes the 2 colors from the source image that are closest to pure white and pure black, if there is space in the target palette.</li>
+                <li><u>Include max RGB colors</u>: includes the 3 colors from the source image that are closest to pure red, green and blue, if there is space in the target palette.</li>
+                <li><u>Include max CMY colors</u>: includes the 3 colors from the source image that are closest to pure cyan, magenta and yellow, if there is space in the target palette.</li>
+            </ul>
+        </div>
+
+        <h1>Color Swatches and Palette Editing</h1>
+        <div id="bodytext">
+            The color swatches are a powerful way to preview and edit the colors of a palette used for dithering.
+            You can edit the swatches the following ways:
+            <ul>
+                <li>Double-click on a swatch or onto a hex color label to bring up a color picker dialog. You can also
+                    open the dialog by right-clicking onto a swatch and choosing <u>edit color</u>.</li>
+                <li>Right-click on a swatch and choose <u>copy color</u> to copy a color's hex value to the clipboard.
+                    The color data in the clipboard is just a piece of text, e.g. "#FFFF0000 for red.</li>
+                <li>Right-click and choose <u>paste color</u> to copy a color's hex value from the clipboard and to change
+                    the color. You are not limited to copy colors within Ditherista. You can copy color values from e.g.
+                    a text editor too, and paste them into Ditherista. You can also copy colors between the <u>Color
+                    Palette</u> and <u>Mono Palette</u> sections.</li>
+            </ul>
+            When edited, a new entry named <u>custom</u> will appear in the <u>Palette source</u> drop down.
+            <p>
+            The hex color values used consist 4 channels: alpha (i.e. transparency), red, green and blue.
+        </div>
+
+        <h1>Custom Palette Export</h1>
+        <div id="bodytext">
+            When you edit colors of a palette, the resulting new palette will be available under the <u>custom</u>
+            entry in the <u>Palette source</u> drop down.<p>
+            There is also a button <u>save palette</u> which lets you save your custom palette as Paint.NET file.
+        </div>
+
     </td></tr>
 </table>
 </body>

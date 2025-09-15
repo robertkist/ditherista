@@ -1,15 +1,15 @@
 # EDIT THE FOLLOWING 3 PATHS BELOW ON WINDOWS:
 # paths are the default install locations for Qt/MingW and Nullsoft Installer Maker (NSIS)
-WIN_QT_BIN_PATH=C:\\Qt\\6.9.1\\mingw_64\bin
+WIN_QT_BIN_PATH=C:\\Qt\\6.9.2\\mingw_64\bin
 WIN_MINGW_BIN_PATH=C:\\Qt\\Tools\\mingw1310_64\\bin
 WIN_NSIS_EXE=C:\Program Files (x86)\NSIS\makensis.exe
 # EDIT THE FOLLOWING PATH BELOW FOR MACOS:
-MAC_QT_BIN_PATH=~/Qt/6.9.1/macos/bin
+MAC_QT_BIN_PATH=~/Qt/6.9.2/macos/bin
 
 APPNAME=ditherista
 APPNAME_CS=Ditherista
 APP_YEAR=2025
-APP_VERSION=$(APP_YEAR).07.14a_RC1
+APP_VERSION=$(APP_YEAR).09.14a.RC2
 APP_HOMEPAGE=http://github.com/robertkist
 
 BUILDDIR=build
@@ -74,7 +74,7 @@ endef
 		LUPDATE=$(MAC_QT_BIN_PATH)/lupdate
 		LRELEASE=$(MAC_QT_BIN_PATH)/lrelease
 		DEPLOYQT=$(MAC_QT_BIN_PATH)/macdeployqt
-		RUNCMD=$(BUILDDIR)/$(APPNAME_CS).app/Contents/MacOS/application
+		RUNCMD=$(DISTDIR)/$(APPNAME_CS).app/Contents/MacOS/application
 		APPBUILD=app_mac
 		INSTALLERBUILD=installer_mac
 		ifneq ("$(wildcard dist/Ditherista.app/Contents/MacOS/application)","")
@@ -90,7 +90,7 @@ endef
 		LUPDATE=lupdate
 		LRELEASE=lrelease
 		DEPLOYQT=linuxdeployqt
-		RUNCMD=$(BUILDDIR)/$(APPNAME)
+		RUNCMD=$(DISTDIR)/$(APPNAME)/$(APPNAME)
 		APPBUILD=app_deb
 		INSTALLERBUILD=installer_deb
 		ARCH=$(shell dpkg --print-architecture)

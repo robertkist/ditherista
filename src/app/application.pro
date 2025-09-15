@@ -12,7 +12,8 @@ LIBS += -L../libdither/dist -ldither
 
 CONFIG += c++11
 QMAKE_CXXFLAGS_RELEASE += -Wall -Wextra -Wstrict-overflow -Wformat=2 -Wundef -fno-common -O3 \
-    -Os -Wpedantic -pedantic -Werror -Wno-c++20-attribute-extensions
+    -Os -Wpedantic -pedantic -Werror -Wno-c++20-attribute-extensions -Wno-c++20-extensions \
+    -std=gnu++20
 QMAKE_LFLAGS += "-Wl,-rpath,\'\$$ORIGIN\'"
 RC_ICONS = resources/appicon.ico
 
@@ -33,6 +34,7 @@ SOURCES += \
     ui_elements/messagebox.cpp \
     ui_elements/doublepushbutton.cpp \
     ui_elements/doublelabel.cpp \
+    ui_elements/editcombobox.cpp \
     ui_elements/svg.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -72,6 +74,7 @@ HEADERS += \
     ui_elements/messagebox.h \
     ui_elements/doublepushbutton.h \
     ui_elements/doublelabel.h \
+    ui_elements/editcombobox.h \
     ui_elements/svg.h \
     mainwindow.h \
     treewidget.h \

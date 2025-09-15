@@ -27,7 +27,13 @@ void MainWindow::keyEventSlot(QKeyEvent* event) {
     if (!firstLoad &&
         isActiveWindow() && (ui->tabWidget->currentIndex() == TAB_INDEX_MONO ||
                              ui->tabWidget->currentIndex() == TAB_INDEX_COLOR)) {
-        activeTreeWidget->handleKeyPressEvent(event);
+        if (event->key() == Qt::Key_Plus) {
+            ui->graphicsView->setZoomLevel(ui->graphicsView->getZoomLevel() + ZOOM_STEP_KEYBOARD, true);
+        } else if (event->key() == Qt::Key_Minus) {
+            ui->graphicsView->setZoomLevel(ui->graphicsView->getZoomLevel() - ZOOM_STEP_KEYBOARD, true);
+        } else {
+            activeTreeWidget->handleKeyPressEvent(event);
+        }
     }
 }
 
@@ -44,6 +50,7 @@ void MainWindow::enableGui(bool enable) {
     ui->actionSaveAs->setEnabled(enable);
     ui->actionCopy->setEnabled(enable);
     ui->actionPaste->setEnabled(enable);
+    ui->statusBarWidget->setEnabled(enable);
 }
 
 void MainWindow::setResetIcon(QPushButton* button, const QIcon* icon) {
@@ -319,9 +326,50 @@ void MainWindow::connectSignals() {
     connect(ui->resetChromaWeightButton, SIGNAL(clicked()), this, SLOT(resetChromaWeightButtonClickedSlot()));
     connect(ui->resetValueWeightButton, SIGNAL(clicked()), this, SLOT(resetValueWeightButtonClickedSlot()));
     connect(ui->savePaletteButton, SIGNAL(clicked()), this, SLOT(savePaletteButtonClickedSlot()));
+
+    connect(ui->graphicsView, SIGNAL(zoomLevelChangedSignal(int)), this, SLOT(zoomLevelChangedSlot(int)));
+    connect(ui->zoomLevelCombo, SIGNAL(currentComboIndexChanged(int)), this, SLOT(zoomLevelComboCurrentIndexChangedSlot(int)));
+    connect(ui->zoomLevelCombo->lineEdit(), SIGNAL(editingFinished()), this, SLOT(zoomLevelEditingFinishedSlot()));
+    ui->zoomLevelCombo->lineEdit()->setFocusPolicy(Qt::ClickFocus);
+
     // install event filter
     connect(&eventFilter, SIGNAL(keyEventSignal(QKeyEvent*)), this, SLOT(keyEventSlot(QKeyEvent*)));
     QApplication::instance()->installEventFilter(&eventFilter);
+}
+
+void MainWindow::zoomLevelChangedSlot(int zoomLevel) {
+    /* updates the text in the zoom level combo-box; called from graphicsView */
+    if (ui->zoomLevelCombo->isEnabled()) {
+        whileBlocking(ui->zoomLevelCombo)->setEditText(QVariant(zoomLevel).toString() + "%");
+    }
+}
+
+void MainWindow::zoomLevelComboCurrentIndexChangedSlot(int index) {
+    /* user selects a zoom level from the zoom level combobox */
+    if (ui->statusBarWidget->isEnabled()) {
+        switch (index) {
+            case 0: ui->graphicsView->setZoomLevel(50, false); break;
+            case 1: ui->graphicsView->setZoomLevel(100, false); break;
+            case 2: ui->graphicsView->setZoomLevel(200, false); break;
+            case 3: ui->graphicsView->setZoomLevel(300, false); break;
+            case 4: ui->graphicsView->setZoomLevel(400, false); break;
+            case 5: ui->graphicsView->setZoomLevel(500, false); break;
+        }
+        ui->graphicsView->setFocus();
+    }
+}
+
+void MainWindow::zoomLevelEditingFinishedSlot() {
+    /* user keyed in a desired zoom level; this function checks if it's a valid value */
+    QString zl = ui->zoomLevelCombo->lineEdit()->text().trimmed();
+    if (zl.contains("%", Qt::CaseInsensitive)) {
+        zl.replace("%", "", Qt::CaseInsensitive);
+    }
+    bool ok = false;
+    int zoomLevel = QVariant(zl).toInt(&ok);
+    if (ok) {
+        ui->graphicsView->setZoomLevel(zoomLevel, true);
+    }
 }
 
 void MainWindow::setDithererDefaults() {

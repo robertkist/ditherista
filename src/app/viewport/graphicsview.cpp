@@ -98,6 +98,8 @@ void GraphicsView::resetScene(const int width, const int height) {
     /* resets and clears the GraphicsView */
     scene.setSceneRect(0, 0, width, height);
     scene.clear(); // clear scene and remove all QGraphicsItems
+    zoomLevel = 100;
+    emit zoomLevelChangedSignal(zoomLevel);
     out_pix_item_mono = nullptr;
     out_pix_item_color = nullptr;
     src_pix_item_mono = nullptr;
@@ -131,32 +133,49 @@ void GraphicsView::dropEvent(QDropEvent* event) {
 void GraphicsView::mouseDoubleClickEvent(QMouseEvent* event) {
     /* handle mouse double click -> resets zoom level */
     resetTransform();
-    zoomLevel = 0;
+    zoomLevel = 100;
+    emit zoomLevelChangedSignal(zoomLevel);
     event->accept();
 }
 
 void GraphicsView::wheelEvent(QWheelEvent* event) {
     /* zoom in / out when user uses mouse wheel */
+    setFocus();
     if (event->angleDelta().y() > 0 && zoomLevel > MIN_ZOOM) {
-        scale(0.95f, 0.95f);
-        zoomLevel--;
-    } else if (zoomLevel < MAX_ZOOM) {
-        scale(1.05f, 1.05f);
-        zoomLevel++;
+        zoomLevel -= ZOOM_STEP_WHEEL;
+        setZoomLevel(zoomLevel, true);
+    } else if (event->angleDelta().y() < 0 && zoomLevel < MAX_ZOOM) {
+        zoomLevel += ZOOM_STEP_WHEEL;
+        setZoomLevel(zoomLevel, true);
     }
     event->accept();
 };
 
+int GraphicsView::getZoomLevel() {
+    /* returns the current zoom level */
+    return zoomLevel;
+}
+
+void GraphicsView::setZoomLevel(int level, bool update) {
+    /* sets the zoom level of the view; emits a signal if 'update' is true */
+    if (level >= MIN_ZOOM && level <= MAX_ZOOM) {
+        zoomLevel = level;
+        float zl = (float) level / 100.0f;
+        setTransform(QTransform(zl, 0, 0, 0, zl, 0, 0, 0, 1));
+        if (update) {
+            emit zoomLevelChangedSignal(zoomLevel);
+        }
+    }
+}
+
 void GraphicsView::dragEnterEvent(QDragEnterEvent* event) {
+    /* accepts drop events into the viewport */
     event->acceptProposedAction();
 }
 
 void GraphicsView::dragMoveEvent(QDragMoveEvent* event) {
+    /* for dragging images into the viewport */
     event->acceptProposedAction();
-}
-
-void GraphicsView::dragLeaveEvent(QDragLeaveEvent* event) {
-    event->accept();
 }
 
 void GraphicsView::tempFileCreatedSlot(const QString& fileName) {

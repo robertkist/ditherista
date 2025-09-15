@@ -43,7 +43,7 @@
 inline constexpr const FloatColor& DEFAULT_ILLUMINANT = D65_XYZ;
 
 // CachedPalette settings
-inline constexpr ByteColor DEFAULT_BIT_SHIFT = { .r=1, .g=1, .b=1 };
+inline constexpr ByteColor DEFAULT_BIT_SHIFT = { .r=1, .g=1, .b=1, .a=0 };
 
 // default mono dithering colors
 inline constexpr QColor DEFAULT_DARK_MONO_COLOR = QColor(0, 0, 0, 255);
@@ -70,8 +70,10 @@ inline static QStringList FILE_FILTERS = {"*.jpg", "*.jpeg", "*.png", "*.bmp"};
 inline static QStringList PALETTE_FILTERS = {"*.pal", "*.txt"};
 
 // viewport/GraphicsView zoom
-inline constexpr int MIN_ZOOM = -70;
-inline constexpr int MAX_ZOOM = 70;
+inline constexpr int MIN_ZOOM = 10;
+inline constexpr int MAX_ZOOM = 500;
+inline constexpr int ZOOM_STEP_KEYBOARD = 10;
+inline constexpr int ZOOM_STEP_WHEEL = 10;
 
 // default color dithering palette
 inline static QString DEFAULT_PALETTE = "p_mac16";

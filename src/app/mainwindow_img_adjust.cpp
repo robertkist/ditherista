@@ -205,6 +205,7 @@ void MainWindow::saturationEditColorEditingFinishedSlot(double) {
 void MainWindow::adjustImageColor() {
     /* applies the current image adjustments to the source image - Color */
     imageHashColor.adjustSource();
+    generateCachedPalette(true, false, true);
     refreshUiColorDitherStatus(false, false);
     ui->graphicsView->setSourceImageColor(imageHashColor.getSourceQImage());
     reDither(true);

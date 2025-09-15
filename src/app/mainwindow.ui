@@ -71,16 +71,175 @@
          <property name="childrenCollapsible">
           <bool>false</bool>
          </property>
-         <widget class="GraphicsView" name="graphicsView">
-          <property name="focusPolicy">
-           <enum>Qt::FocusPolicy::NoFocus</enum>
-          </property>
-          <property name="verticalScrollBarPolicy">
-           <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
-          </property>
-          <property name="horizontalScrollBarPolicy">
-           <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
-          </property>
+         <widget class="QWidget" name="verticalLayoutWidget">
+          <layout class="QVBoxLayout" name="verticalLayout_30">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="GraphicsView" name="graphicsView">
+             <property name="focusPolicy">
+              <enum>Qt::FocusPolicy::NoFocus</enum>
+             </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+             </property>
+             <property name="horizontalScrollBarPolicy">
+              <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="statusBarWidget" native="true">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>26</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>26</height>
+              </size>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_50">
+              <property name="leftMargin">
+               <number>12</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>2</number>
+              </property>
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item row="0" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <property name="spacing">
+                 <number>4</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_42">
+                  <property name="text">
+                   <string>zoom:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="EditComboBox" name="zoomLevelCombo">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>68</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>68</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="baseSize">
+                   <size>
+                    <width>0</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::FocusPolicy::NoFocus</enum>
+                  </property>
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="currentIndex">
+                   <number>1</number>
+                  </property>
+                  <property name="insertPolicy">
+                   <enum>QComboBox::InsertPolicy::NoInsert</enum>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>50%</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>100%</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>200%</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>300%</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>400%</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>500%</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_46">
+                  <property name="text">
+                   <string>dimensions:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="resolutionLabel">
+                  <property name="minimumSize">
+                   <size>
+                    <width>20</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>none</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_10">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="imageSettingsContainer" native="true">
           <property name="enabled">
@@ -4746,6 +4905,11 @@
    <class>SectionComboBox</class>
    <extends>QComboBox</extends>
    <header>ui_elements/sectioncombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>EditComboBox</class>
+   <extends>QComboBox</extends>
+   <header location="global">ui_elements/editcombobox.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

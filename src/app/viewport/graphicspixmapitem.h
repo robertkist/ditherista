@@ -16,6 +16,7 @@ public:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent* event) override;
 private:
+    bool dragging = false;
     /* attributes */
     bool drag = false;
 };

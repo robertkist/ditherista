@@ -10,13 +10,13 @@ class GraphicsView final : public QGraphicsView {
     Q_OBJECT
 signals:
     void loadImageSignal(QString fileName);
+    void zoomLevelChangedSignal(int zoomLevel);
 public:
     /* methods */
     explicit GraphicsView(QWidget* parent = nullptr);
     void dropEvent(QDropEvent* event) override;
     void dragEnterEvent(QDragEnterEvent* event) override;
     void dragMoveEvent(QDragMoveEvent* event) override;
-    void dragLeaveEvent(QDragLeaveEvent* event) override;
     void wheelEvent(QWheelEvent* event) override;
     void mouseDoubleClickEvent(QMouseEvent* event) override;
     void resetScene(int width, int height);
@@ -30,10 +30,14 @@ public:
     void setSourceImageMono(const QImage* img);
     void setSourceImageColor(const QImage* img);
 
+    int getZoomLevel();
+
+    void setZoomLevel(int level, bool update);
+
     ~GraphicsView() override;
 private:
     /* attributes */
-    int zoomLevel = 0;
+    int zoomLevel = 100; // in percent
     QGraphicsScene scene;
     GraphicsPixmapItem* out_pix_item_mono = nullptr;   // dithered mono image
     GraphicsPixmapItem* out_pix_item_color = nullptr;  // dithered color image

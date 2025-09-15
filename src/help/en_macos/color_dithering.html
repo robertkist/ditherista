@@ -46,9 +46,96 @@
     <tr><td>
         <h1>Color Dithering</h1>
         <div id="bodytext">
+            Color dithering dithers images in color.<p>
+            The quality of the color dithering depends highly on the chosen target palette:
+            <ul>
+                <li>How many colors the target palette has.</li>
+                <li>How closely the target palette's colors match the source image's colors in terms of brightness and color value.</li>
+            </ul>
+        </div>
 
-            (Release Candidate version: help is still missing)
+        <h1>Ditherers</h1>
+        <h2>Error Diffusion Dithering</h2>
+        <div id="bodytext">
+            Use the <u>Jitter</u> parameter to introduce randomization into the dithering, to make it less uniform.
+            The <u>serpentine</u> toggle changes how the algorithm processes the pixels in the image. For most error
+            diffusion ditherers turning <u>serpentine</u> on improves the dithering quality.<p>
+            With color dithering, you will notice that some error diffusion dither approaches yield better results than
+            others when it comes to matching the color distribution of the source image.<p>
+            <h3>&bull; Xot Diffusion</h3>
+            <h3>&bull; Diagonal Dither</h3>
+            <h3>&bull; Floyd Steinberg</h3>
+            <h3>&bull; Shiau Fan 3</h3>
+            <h3>&bull; Shiau Fan 2</h3>
+            <h3>&bull; Shiau Fan 1</h3>
+            <h3>&bull; Stucki</h3>
+            <h3>&bull; Error Diffusion 1D</h3>
+            <h3>&bull; Error Diffusion 2D</h3>
+            <h3>&bull; Fake Floyd Steinberg</h3>
+            <h3>&bull; Jarvis-Judice-Ninke</h3>
+            <h3>&bull; Atkinson</h3>
+            <h3>&bull; Burkes</h3>
+            <h3>&bull; Sierra 3</h3>
+            <h3>&bull; Sierra 2-Row</h3>
+            <h3>&bull; Sierra Lite</h3>
+            <h3>&bull; Steve Pigeon</h3>
+            <h3>&bull; Robert Kist</h3>
+            <h3>&bull; Stevenson-Arce</h3>
+        </div>
 
+        <h2>Ordered Dithering</h2>
+        <div id="bodytext">
+            Use the <u>Jitter</u> parameter to introduce randomization into the dithering, to make it less uniform.<p>
+            When dithering in color, one of the big drawbacks of ordered dither approaches is that they may not be
+            able to achieve a good overall color and brightness distribution as other dithering approaches, such as
+            error diffusion.<p>
+            <h3>&bull; Blue Noise</h3>
+            <h3>&bull; Bayer 2x2</h3>
+            <h3>&bull; Bayer 3x3</h3>
+            <h3>&bull; Bayer 4x4</h3>
+            <h3>&bull; Bayer 8x8</h3>
+            <h3>&bull; Bayer 16x16</h3>
+            <h3>&bull; Bayer 32x32</h3>
+            <h3>&bull; Dispersed Dots 1</h3>
+            <h3>&bull; Dispersed Dots 2</h3>
+            <h3>&bull; Void Dispersed Dots</h3>
+            <h3>&bull; Non-Rectangular 1</h3>
+            <h3>&bull; Non-Rectangular 2</h3>
+            <h3>&bull; Non-Rectangular 3</h3>
+            <h3>&bull; Non-Rectangular 4</h3>
+            <h3>&bull; Ulichney</h3>
+            <h3>&bull; Ulichney Bayer 5x5</h3>
+            <h3>&bull; Clustered Dot 1</h3>
+            <h3>&bull; Clustered Dot 2</h3>
+            <h3>&bull; Clustered Dot 3</h3>
+            <h3>&bull; Clustered Dot 4</h3>
+            <h3>&bull; Clustered Dot 5</h3>
+            <h3>&bull; Clustered Dot 6</h3>
+            <h3>&bull; Clustered Dot 7</h3>
+            <h3>&bull; Clustered Dot 8</h3>
+            <h3>&bull; Clustered Dot 9</h3>
+            <h3>&bull; Clustered Dot 10</h3>
+            <h3>&bull; Clustered Dot 11</h3>
+            <h3>&bull; Central White-Point</h3>
+            <h3>&bull; Balanced White-Point</h3>
+            <h3>&bull; Diagonal Ordered</h3>
+            <h3>&bull; Ulichney Cluster Dot</h3>
+            <h3>&bull; Magic 5x5 Circle</h3>
+            <h3>&bull; Magic 6x6 Circle</h3>
+            <h3>&bull; Magic 7x7 Circle</h3>
+            <h3>&bull; Magic 4x4 45</h3>
+            <h3>&bull; Magic 6x6 45</h3>
+            <h3>&bull; Magic 8x8 45</h3>
+            <h3>&bull; Magic 4x4</h3>
+            <h3>&bull; Magic 6x6</h3>
+            <h3>&bull; Magic 8x8</h3>
+            <h3>&bull; Variable 2x2</h3>
+            <div id="h3bodytext">Use the "Step" parameter to adjust the dithering threshold.</div>
+            <h3>&bull; Variable 4x4</h3>
+            <div id="h3bodytext">Use the "Step" parameter to adjust the dithering threshold.</div>
+            <h3>&bull; Interleaved Gradient</h3>
+            <div id="h3bodytext">Use the "Step" parameter to adjust the dithering threshold. Use the A, B and C variables
+                to adjust the formula for generating the dither matrix to attain different dithering effects.</div>
         </div>
     </td></tr>
 </table>
