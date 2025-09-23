@@ -55,13 +55,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential libgl1-mesa-dev patchelf libfuse2 dpkg-dev
-          # Try to install linuxdeployqt from apt; fall back to AppImage if unavailable
-          if ! sudo apt-get install -y linuxdeployqt; then
-            echo "linuxdeployqt not available via apt, downloading AppImage..."
-            curl -fsSL -o linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
-            chmod +x linuxdeployqt
-            sudo mv linuxdeployqt /usr/local/bin/linuxdeployqt
-          fi
+          curl -fsSL -o linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
+          chmod +x linuxdeployqt
+          sudo mv linuxdeployqt /usr/local/bin/linuxdeployqt
 
       - name: Qt/qmake environment (Linux)
         if: runner.os == 'Linux'
