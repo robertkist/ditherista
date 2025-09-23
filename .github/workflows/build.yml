@@ -1,0 +1,211 @@
+name: Build Ditherista
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*-*-*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            qt_arch: linux_gcc_64
+          - os: macos-latest
+            qt_arch: clang_64
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Qt (Linux)
+        if: runner.os == 'Linux'
+        uses: jurplel/install-qt-action@v4
+        with:
+          target: 'desktop'
+          arch: linux_gcc_64
+          archives: 'qtbase qtdeclarative qtsvg qttools'
+          setup-python: true
+          cache: true
+          add-tools-to-path: true
+          set-env: true
+
+      - name: Provision ICU 73 (Linux)
+        if: runner.os == 'Linux'
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: qt-icu
+          create-args: -c conda-forge icu=73
+          init-shell: bash
+          cache-environment: true
+          cache-downloads: true
+
+      - name: Install prerequisites (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libgl1-mesa-dev patchelf libfuse2 dpkg-dev
+          # Try to install linuxdeployqt from apt; fall back to AppImage if unavailable
+          if ! sudo apt-get install -y linuxdeployqt; then
+            echo "linuxdeployqt not available via apt, downloading AppImage..."
+            curl -fsSL -o linuxdeployqt https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
+            chmod +x linuxdeployqt
+            sudo mv linuxdeployqt /usr/local/bin/linuxdeployqt
+          fi
+
+      - name: Qt/qmake environment (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          eval "$(micromamba shell hook -s bash)"
+          micromamba activate qt-icu
+          echo "QT_ROOT_DIR=$QT_ROOT_DIR"
+          export PATH="$QT_ROOT_DIR/bin:$PATH"
+          export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$QT_ROOT_DIR/lib:$LD_LIBRARY_PATH"
+          which qmake || echo "qmake not found"
+          qmake -v || true
+          which lupdate || true
+          which lrelease || true
+        shell: bash -l {0}
+
+      - name: Build libdither (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          eval "$(micromamba shell hook -s bash)"
+          micromamba activate qt-icu
+          make -C libdither libdither
+        shell: bash -l {0}
+
+      - name: Build Ditherista (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          eval "$(micromamba shell hook -s bash)"
+          micromamba activate qt-icu
+          export PATH="$QT_ROOT_DIR/bin:$PATH"
+          export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$QT_ROOT_DIR/lib:$LD_LIBRARY_PATH"
+          LUPDATE_BIN="$QT_ROOT_DIR/bin/lupdate"
+          LRELEASE_BIN="$QT_ROOT_DIR/bin/lrelease"
+          echo "Using Qt at $QT_ROOT_DIR"
+          echo "Using LUPDATE=$LUPDATE_BIN"
+          echo "Using LRELEASE=$LRELEASE_BIN"
+          make QMAKE=qmake LUPDATE="$LUPDATE_BIN" LRELEASE="$LRELEASE_BIN" app
+        shell: bash -l {0}
+
+      - name: Package Ditherista (.deb)
+        if: runner.os == 'Linux'
+        run: |
+          eval "$(micromamba shell hook -s bash)"
+          micromamba activate qt-icu
+          make installer
+        shell: bash -l {0}
+
+      - name: Build Ditherista (AppImage)
+        if: runner.os == 'Linux'
+        run: |
+          eval "$(micromamba shell hook -s bash)"
+          micromamba activate qt-icu
+          export PATH="$QT_ROOT_DIR/bin:$PATH"
+          export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$QT_ROOT_DIR/lib:$LD_LIBRARY_PATH"
+          make appimage
+        shell: bash -l {0}
+
+      - name: Package Ditherista (tarball)
+        if: runner.os == 'Linux'
+        run: |
+          eval "$(micromamba shell hook -s bash)"
+          micromamba activate qt-icu
+          export PATH="$QT_ROOT_DIR/bin:$PATH"
+          export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$QT_ROOT_DIR/lib:$LD_LIBRARY_PATH"
+          make installer_tgz_full
+        shell: bash -l {0}
+
+      - name: Set up Qt (macOS)
+        if: runner.os == 'macOS'
+        uses: jurplel/install-qt-action@v4
+        with:
+          target: 'desktop'
+          arch: ${{ matrix.qt_arch }}
+          archives: 'qtbase qtdeclarative qtsvg qttools'
+          setup-python: true
+          cache: true
+          add-tools-to-path: true
+          set-env: true
+
+      - name: Qt/qmake environment (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          echo "QT_ROOT_DIR=$QT_ROOT_DIR"
+          which qmake || where qmake
+          qmake -v
+        shell: bash
+
+
+      - name: Build libdither (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          make -C libdither libdither_universal
+        shell: bash
+
+
+      - name: Build Ditherista (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          make MAC_QT_BIN_PATH="$QT_ROOT_DIR/bin" app_universal
+        shell: bash
+
+      - name: Package Ditherista (.dmg)
+        if: runner.os == 'macOS'
+        run: |
+          make installer
+        shell: bash
+
+      - name: Package artifacts
+        id: pkg
+        run: |
+          echo "dist_path=$(pwd)/dist" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ditherista-${{ runner.os }}
+          path: ${{ steps.pkg.outputs.dist_path }}
+          if-no-files-found: warn
+          retention-days: 14
+
+  release:
+    name: Release
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release_artifacts
+          merge-multiple: true
+
+      - name: List artifacts
+        run: |
+          ls -R release_artifacts || true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: false
+          generate_release_notes: true
+          name: ${{ github.ref_name }}
+          files: |
+            release_artifacts/**/*.deb
+            release_artifacts/**/*.AppImage
+            release_artifacts/**/*_full.tar.gz
+            release_artifacts/**/*.dmg
