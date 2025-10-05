@@ -1419,7 +1419,8 @@ Choose a color comparison method between colors in the source image and colors i
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="567"/>
-        <source>LAB &apos;2000</source>
+        <source>LAB 2000</source>
+        <oldsource>LAB &apos;2000</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>

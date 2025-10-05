@@ -2,8 +2,10 @@
 #include <QTranslator>
 #include <QApplication>
 
+#undef main
 
-int main(int argc, char* argv[]) {
+// int main(int argc, char* argv[]) { // TODO mingw
+int main(int argc, char** argv) {    
 #if defined(__APPLE__) && defined(__MACH__)
     QApplication::setDesktopSettingsAware(false);
 #endif

@@ -20,8 +20,6 @@ Both Ditherista Color (lastest version) and Ditherista Mono (previous version) c
 
 This version is a Release Candidate. It's fully functional, usable and generally stable. 
 
-But there may still be slight UI glitches here and there.
-
 ### Ditherista Features ###
 
 * Over 90 different dither methods with adjustable parameters
@@ -38,15 +36,17 @@ But there may still be slight UI glitches here and there.
 * Many different color-matching methods
 
 Known issues:
-- In a few cases there may still be GUI glitches (incorrect resizing, highlighting of UI elements)
-- LAB2000 may in some instances have slight glitches on Windows (under investigation if false alarm or real issue)
-- Help file is not yet up-to-date
+- In a few cases there may still be GUI glitches (incorrect resizing of UI elements)
+
+Notes:
+- LAB 2000 may look wrong if the reduced palette doesn't match the original image's palette well. This is not a bug -
+  this is just how the LAB 2000 color matching works. Use the weight controls to tweak for better results!
 
 Windows Installation
 --------------------
 
 Run the setup.exe file and follow its instructions. Shortcuts for launching the application will
-be created automatically by the installer.
+be created automatically when running the setup.
 
 macOS Installation
 ------------------
@@ -65,6 +65,18 @@ Either double click the .deb file to install it, or install via the command
 ```dpkg -i ditherista_setup.deb```. Ditherista supports HiDPI mode on linux, however, depending on
 your display manager, it may not automatically recognize it. In this case, launching Ditherista via
 `QT_SCREEN_SCALE_FACTOR=2 ./ditherista` may help.
+
+Other Linux Installation
+------------------------
+
+Download the ```.AppImage```. Make the file executable and run it. You can use 
+[AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) to integrate the Ditherista AppImage properly
+into your desktop environment's Start menu or Application launcher.
+
+Alternatively, you can download the ```.tar.gz``` package. This should include all dependencies. 
+If they don't work, you can install package dependencies manually for your distribution:
+* Ubuntu: ```apt install libgl1-mesa-dev libxcb-cursor-dev libxcb-cursor0 qt6-base libqt6svg6 qt6-qpa-plugins```
+* Fedora: ```dnf install qt6-qtbase qt6-qtsvg```
 
 Basic Usage
 -----------
@@ -114,6 +126,6 @@ Please refer to the [BUILDING.md](BUILDING.md) file for building on Windows, Lin
 Dithering Examples
 ------------------
 
-Ditherista is powered by libdither (from the same author).
+Ditherista is powered by [libdither](https://github.com/robertkist/libdither) (from the same author).
 
-Please visit the libdither repo to see color and mono dithering examples.
+Please visit the [libdither](https://github.com/robertkist/libdither) repo to see color and mono dithering examples.

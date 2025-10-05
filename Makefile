@@ -1,6 +1,7 @@
 # EDIT THE FOLLOWING 3 PATHS BELOW ON WINDOWS:
 # paths are the default install locations for Qt/MingW and Nullsoft Installer Maker (NSIS)
-WIN_QT_BIN_PATH=C:\\Qt\\6.9.2\\mingw_64\bin
+WIN_QT_BIN_PATH_MINGW=C:\\Qt\\6.9.3\\mingw_64\bin
+WIN_QT_BIN_PATH_MSVC=C:\\Qt\\6.9.3\\msvc2022_64\bin
 WIN_MINGW_BIN_PATH=C:\\Qt\\Tools\\mingw1310_64\\bin
 WIN_NSIS_EXE=C:\Program Files (x86)\NSIS\makensis.exe
 # EDIT THE FOLLOWING PATH BELOW FOR MACOS:
@@ -9,7 +10,7 @@ MAC_QT_BIN_PATH=~/Qt/6.9.2/macos/bin
 APPNAME=ditherista
 APPNAME_CS=Ditherista
 APP_YEAR=2025
-APP_VERSION=$(APP_YEAR).09.14a.RC2
+APP_VERSION=$(APP_YEAR).10.04a.RC3
 APP_HOMEPAGE=http://github.com/robertkist
 
 BUILDDIR=build
@@ -20,35 +21,43 @@ LIBDITHER_ROOT=libdither
 LIBNAME=libdither
 QMAKEOPTS=-Wall -Wlogic
 
+# set architecture for macOS builds
 app_x64: QTARCHS=QMAKE_APPLE_DEVICE_ARCHS="x86_64"
 app_arm64: QTARCHS=QMAKE_APPLE_DEVICE_ARCHS="arm64"
 app_universal: QTARCHS=QMAKE_APPLE_DEVICE_ARCHS="x86_64 arm64"
 
+# set compiler and Qt vars for Windows MinGW vs MSVC
+SET_WIN_PATH=SET PATH=$(WIN_MINGW_BIN_PATH);$(WIN_QT_BIN_PATH_MINGW);%PATH%
+app_msvc: SET_WIN_PATH=SET PATH=$(WIN_QT_BIN_PATH_MSVC);%PATH%
+installer: COMPILER=mingw_
+installer_msvc: COMPILER=msvc_
+
 ifdef OS  # Windows:
 define fn_mkdir
-	if not exist "$(1)" mkdir "$(1)"
+	@if not exist "$(1)" mkdir "$(1)"
 endef
 ABOUT_INI_PATH=src\\app\\resources\\about.ini
 define fn_make_about_ini
-	-del $(ABOUT_INI_PATH)
-	echo [about]>$(ABOUT_INI_PATH)
-	echo title=$(APPNAME_CS)>>$(ABOUT_INI_PATH)
-	echo version=$(1)>>$(ABOUT_INI_PATH)
-	echo homepage=$(2)>>$(ABOUT_INI_PATH)
-	echo year=$(3)>>$(ABOUT_INI_PATH)
+	-@del $(ABOUT_INI_PATH)
+	@echo [about]>$(ABOUT_INI_PATH)
+	@echo title=$(APPNAME_CS)>>$(ABOUT_INI_PATH)
+	@echo version=$(1)>>$(ABOUT_INI_PATH)
+	@echo homepage=$(2)>>$(ABOUT_INI_PATH)
+	@echo year=$(3)>>$(ABOUT_INI_PATH)
 endef
+	SHELL=cmd
 	DEL=del
 	DELTREE=rd /s /q
-	QMAKE=SET PATH=$(WIN_MINGW_BIN_PATH);$(WIN_QT_BIN_PATH);%PATH% && qmake
-	LUPDATE=SET PATH=$(WIN_MINGW_BIN_PATH);$(WIN_QT_BIN_PATH);%PATH% && lupdate
-	LRELEASE=SET PATH=$(WIN_MINGW_BIN_PATH);$(WIN_QT_BIN_PATH);%PATH% && lrelease
-	DEPLOYQT=SET PATH=$(WIN_MINGW_BIN_PATH);$(WIN_QT_BIN_PATH);%PATH% && windeployqt
-	MAKE=SET PATH=$(WIN_MINGW_BIN_PATH);$(WIN_QT_BIN_PATH);%PATH% && make
+	QMAKE=$(SET_WIN_PATH) && qmake
+	LUPDATE=$(SET_WIN_PATH) && lupdate
+	LRELEASE=$(SET_WIN_PATH) && lrelease
+	DEPLOYQT=$(SET_WIN_PATH) && windeployqt
+	MAKE=$(SET_WIN_PATH) && make
 	LIBDITHERPATH=$(LIBDITHER_ROOT)\\dist\\
 	RUNCMD=$(DISTDIR)/$(APPNAME)/$(APPNAME).exe
 	APPBUILD=app_win
 	INSTALLERBUILD=installer_win
-	INSTALLERNAME=$(APPNAME)_$(APP_VERSION)_setup.exe
+	INSTALLERNAME=$(APPNAME)_win64_$(COMPILER)$(APP_VERSION)_setup.exe
 	HELP_PATH=src\\app\\resources\\help
 	HELP_COPY_CMD=xcopy src\\help\\en_win $(HELP_PATH) /I /Y
 else  # Unix based platforms
@@ -73,7 +82,7 @@ endef
 		QMAKE=export LIBRARY_PATH=$$HOME:$$LIBRARY_PATH && $(MAC_QT_BIN_PATH)/qmake
 		LUPDATE=$(MAC_QT_BIN_PATH)/lupdate
 		LRELEASE=$(MAC_QT_BIN_PATH)/lrelease
-		DEPLOYQT=$(MAC_QT_BIN_PATH)/macdeployqt
+		DEPLOYQT=$(MAC_QT_BIN_PATH)/macdeployqt6
 		RUNCMD=$(DISTDIR)/$(APPNAME_CS).app/Contents/MacOS/application
 		APPBUILD=app_mac
 		INSTALLERBUILD=installer_mac
@@ -83,18 +92,23 @@ endef
 				ARCH=universal
 			endif
 		endif
-		DMGNAME=$(APPNAME)_$(APP_VERSION)_$(ARCH)
+		DMGNAME=$(APPNAME)_macos_$(APP_VERSION)_$(ARCH)
 		HELP_COPY_CMD=cp -R ./src/help/en_macos/ $(HELP_PATH)
 	else  # other Unix / Linux
-		QMAKE=qmake
-		LUPDATE=lupdate
 		LRELEASE=lrelease
+		LUPDATE=lupdate
+		# On Fedora 42 the Qt build tools have slightly different names...
+		ifeq ($(findstring fedora,$(shell cat /etc/*release)),fedora)
+			LRELEASE=lrelease-qt6
+			LUPDATE=lupdate-qt6
+		endif
+		QMAKE=qmake
 		DEPLOYQT=linuxdeployqt
 		RUNCMD=$(DISTDIR)/$(APPNAME)/$(APPNAME)
 		APPBUILD=app_deb
 		INSTALLERBUILD=installer_deb
-		ARCH=$(shell dpkg --print-architecture)
-		DEBNAME=$(APPNAME)_$(APP_VERSION)-1_$(ARCH)
+		ARCH=$(shell arch)
+		DEBNAME=$(APPNAME)_linux_$(APP_VERSION)-1_$(ARCH)
 		HELP_COPY_CMD=cp -R ./src/help/en_linux/ $(HELP_PATH)
 	endif
 endif
@@ -102,7 +116,7 @@ endif
 .PHONY: all
 all:
 	@echo "Targets:"
-	@echo "* app - builds the application for the current platform"
+	@echo "* app - builds the application for the current platform (GCC/clang)"
 	@echo "* app_x64 - builds the application for the macOS x86 platform"
 	@echo "* app_arm64 - builds the application for the macOS arm64 platform"
 	@echo "* app_universal - builds a universal macOS application"
@@ -127,6 +141,9 @@ app: $(APPBUILD)
 .PHONY: installer
 installer: $(INSTALLERBUILD)
 
+.PHONY: installer_msvc
+installer_msvc: installer_win
+
 .PHONY: app_build
 app_build:
 	$(call fn_mkdir,$(BUILDDIR))
@@ -139,7 +156,7 @@ app_build:
 	@echo "application executable built successfully"
 
 .PHONY: run
-run: $(APPBUILD)
+run:
 	$(RUNCMD)
 	@echo "done"
 
@@ -155,7 +172,28 @@ app_win: app_build
 .PHONY: installer_win
 installer_win:
 	set APPNAME=$(APPNAME)&&set APPNAME_CS=$(APPNAME_CS)&&"$(WIN_NSIS_EXE)" src/win_installer/installscript.nsi
-	@move src\\win_installer\\setup_out.exe $(DISTDIR)\\$(INSTALLERNAME)
+	move src\\win_installer\\setup_out.exe $(DISTDIR)\\$(INSTALLERNAME)
+
+.PHONY: app_msvc
+app_msvc:
+	@echo *************************************************************
+	@echo * Make sure to run vcvars64.bat before you run this target! *
+	@echo *************************************************************
+	$(call fn_mkdir,$(BUILDDIR))
+	$(call fn_make_about_ini,$(APP_VERSION),$(APP_HOMEPAGE),$(APP_YEAR))
+	copy $(LIBDITHERPATH)Release\\$(LIBNAME).* $(LIBDITHERPATH)
+	$(HELP_COPY_CMD)
+	$(LUPDATE) src/app/application.pro
+	$(LRELEASE) src/app/application.pro
+	$(QMAKE) -spec win32-msvc -tp vc $(QMAKEOPTS) src/app/application.pro -o $(BUILDDIR)/ditherista
+	cd $(BUILDDIR) && msbuild ditherista.vcxproj /p:Configuration=Release
+	$(call fn_mkdir,$(DISTDIR))
+	$(call fn_mkdir,$(DISTDIR)\\$(APPNAME))
+	copy $(BUILDDIR)\\release\\application.exe $(DISTDIR)\\$(APPNAME)\\$(APPNAME).exe
+	copy $(LIBDITHERPATH)Release\\$(LIBNAME).dll $(DISTDIR)\\$(APPNAME)\\$(LIBNAME).dll
+	$(DEPLOYQT) $(DISTDIR)\\$(APPNAME)\\$(APPNAME).exe
+	move $(DISTDIR)\\$(APPNAME)\\vc_redist.x64.exe $(DISTDIR)
+	@echo application executable built successfully
 
 # DEBIAN SPECIFIC TARGETS post build steps
 .PHONY: app_deb
@@ -167,38 +205,39 @@ app_deb: app_build
 .PHONY: installer_deb
 installer_deb:
 	$(call fn_mkdir,$(DISTBUILDDIR)/$(DEBNAME)/usr/local/bin)
-	cp -R $(DISTDIR)/$(APPNAME) $(DISTBUILDDIR)/$(DEBNAME)/usr/local
+	@cp -R $(DISTDIR)/$(APPNAME) $(DISTBUILDDIR)/$(DEBNAME)/usr/local
 	# copy and prepare debian specific control folder
-	cp -R src/deb_installer/DEBIAN $(DISTBUILDDIR)/$(DEBNAME)
-	sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/control
-	sed -i 's/{{ARCH}}/$(ARCH)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/control
-	sed -i 's/{{APP_VERSION}}/$(APP_VERSION)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/control
-	sed -i 's,{{APP_HOMEPAGE}},$(APP_HOMEPAGE),g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/control
-	sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postinst
-	sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postinst
-	sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postrm
-	sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
-	sed -i 's,{{APP_HOMEPAGE}},$(APP_HOMEPAGE),g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
-	sed -i 's,{{APP_YEAR}},$(APP_YEAR),g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
-	chmod 775 $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postrm
-	chmod 775 $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postinst
+	@cp -R src/deb_installer/DEBIAN $(DISTBUILDDIR)/$(DEBNAME)
+	@sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/control
+	@sed -i 's/{{ARCH}}/$(ARCH)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/control
+	@sed -i 's/{{APP_VERSION}}/$(APP_VERSION)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/control
+	@sed -i 's,{{APP_HOMEPAGE}},$(APP_HOMEPAGE),g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/control
+	@sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postinst
+	@sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postinst
+	@sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postrm
+	@sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
+	@sed -i 's,{{APP_HOMEPAGE}},$(APP_HOMEPAGE),g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
+	@sed -i 's,{{APP_YEAR}},$(APP_YEAR),g' $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/copyright
+	@chmod 775 $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postrm
+	@chmod 775 $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN/postinst
 	# copy app and launcher script
-	cp src/app/resources/appicon.png $(DISTBUILDDIR)/$(DEBNAME)/usr/local/$(APPNAME)
-	cp src/deb_installer/launcher.sh $(DISTBUILDDIR)/$(DEBNAME)/usr/local/bin/$(APPNAME)
-	sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/$(DEBNAME)/usr/local/bin/$(APPNAME)
-	chmod +x $(DISTBUILDDIR)/$(DEBNAME)/usr/local/bin/$(APPNAME)
-	cp src/deb_installer/shortcut.desktop $(DISTBUILDDIR)/$(DEBNAME)/usr/local/$(APPNAME)/$(APPNAME_CS).desktop
-	sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/$(DEBNAME)/usr/local/$(APPNAME)/$(APPNAME_CS).desktop
-	sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/usr/local/$(APPNAME)/$(APPNAME_CS).desktop
+	@cp src/app/resources/appicon.png $(DISTBUILDDIR)/$(DEBNAME)/usr/local/$(APPNAME)
+	@cp src/deb_installer/launcher.sh $(DISTBUILDDIR)/$(DEBNAME)/usr/local/bin/$(APPNAME)
+	@sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/$(DEBNAME)/usr/local/bin/$(APPNAME)
+	@chmod +x $(DISTBUILDDIR)/$(DEBNAME)/usr/local/bin/$(APPNAME)
+	@cp src/deb_installer/shortcut.desktop $(DISTBUILDDIR)/$(DEBNAME)/usr/local/$(APPNAME)/$(APPNAME_CS).desktop
+	@sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/$(DEBNAME)/usr/local/$(APPNAME)/$(APPNAME_CS).desktop
+	@sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/$(DEBNAME)/usr/local/$(APPNAME)/$(APPNAME_CS).desktop
 	# list package dependencies
-	echo "*** Package dependencies for $(APPNAME):"
-	cp -R $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN $(DISTBUILDDIR)/$(DEBNAME)/debian
+	@echo "*** Package dependencies for $(APPNAME):"
+	@cp -R $(DISTBUILDDIR)/$(DEBNAME)/DEBIAN $(DISTBUILDDIR)/$(DEBNAME)/debian
 	cd $(DISTBUILDDIR)/$(DEBNAME) && dpkg-shlibdeps -O --ignore-missing-info ./usr/local/$(APPNAME)/$(APPNAME)
 	# build final .deb package
+	@echo "*** Building .deb package..."
 	dpkg-deb --build $(DISTBUILDDIR)/$(DEBNAME)
-	cp $(DISTBUILDDIR)/$(DEBNAME).deb $(DISTDIR)
+	@cp $(DISTBUILDDIR)/$(DEBNAME).deb $(DISTDIR)
 	# create a tarball
-	cd $(DISTDIR) && tar -czvf $(DEBNAME).tar.gz $(APPNAME)
+	@cd $(DISTDIR) && tar -czvf $(DEBNAME).tar.gz $(APPNAME)
 
 .PHONY: appimage
 appimage:
@@ -209,8 +248,8 @@ appimage:
 	sed -i 's/{{APPNAME}}/$(APPNAME)/g' $(DISTBUILDDIR)/appimage/$(APPNAME_CS).desktop
 	sed -i 's/{{APPNAME_CS}}/$(APPNAME_CS)/g' $(DISTBUILDDIR)/appimage/$(APPNAME_CS).desktop
 	cp src/app/resources/appicon.png $(DISTBUILDDIR)/appimage/usr/local/$(APPNAME)/appicon.png.png
-	$(DEPLOYQT) $(DISTBUILDDIR)/appimage/$(APPNAME) -verbose=2 -always-overwrite -bundle-non-qt-libs -appimage -no-strip
-	mv *.AppImage $(DISTDIR)
+	VERSION=$(APP_VERSION) $(DEPLOYQT) $(DISTBUILDDIR)/appimage/$(APPNAME) -verbose=2 -always-overwrite -bundle-non-qt-libs -appimage -no-strip
+	mv $(APPNAME_CS)-$(APP_VERSION)-$(ARCH).AppImage $(DISTDIR)/$(APPNAME)_linux_$(APP_VERSION)_$(ARCH).AppImage
 
 .PHONY: installer_tgz_full
 installer_tgz_full:

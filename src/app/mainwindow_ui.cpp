@@ -564,7 +564,7 @@ void MainWindow::populateColorComparisonCombo() {
     /* adds entries to the color comparison combo box in the palette tab */
     ui->colorComparisonCombo->insertItem(1, tr("LAB '76"), (int)LAB76);
     ui->colorComparisonCombo->insertItem(2, tr("LAB '94"), (int)LAB94);
-    ui->colorComparisonCombo->insertItem(3, tr("LAB '2000"), (int)LAB2000);
+    ui->colorComparisonCombo->insertItem(3, tr("LAB 2000"), (int)LAB2000);
     ui->colorComparisonCombo->insertItem(4, tr("Luminance"), (int)LUMINANCE);
     ui->colorComparisonCombo->insertItem(5, tr("HSV"), (int)HSV);
     ui->colorComparisonCombo->insertItem(6, tr("sRGB"), (int)SRGB);
