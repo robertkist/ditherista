@@ -48,6 +48,8 @@ Windows Installation
 Run the setup.exe file and follow its instructions. Shortcuts for launching the application will
 be created automatically when running the setup.
 
+When using the "msvc" version, you may have to install the latest [Microsoft Visual C++ 2015-2022 redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) package.
+
 macOS Installation
 ------------------
 
@@ -129,3 +131,4 @@ Dithering Examples
 Ditherista is powered by [libdither](https://github.com/robertkist/libdither) (from the same author).
 
 Please visit the [libdither](https://github.com/robertkist/libdither) repo to see color and mono dithering examples.
+
