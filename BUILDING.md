@@ -87,7 +87,7 @@ will need to install the latest version of the Nullsoft Scriptable Installer Sys
   * [Qt Online Installer (includes MinGW)](https://www.qt.io/download-open-source)
   * [Chocolatey](https://chocolatey.org/install) 
   * [GNU make via Chocolatey](https://community.chocolatey.org/packages/make)
-  * [NSIS](https://nsis.sourceforge.io/Download)
+  * [NSIS](https://nsis.sourceforge.io/Download) (optional, used for building an installer)
 
 Building:
 1. clone the ditherista git repository: ```git clone --recursive https://github.com/robertkist/ditherista.git```
@@ -114,7 +114,7 @@ Pre-Requisites:
   * [Qt Online Installer](https://www.qt.io/download-open-source)
   * [Chocolatey](https://chocolatey.org/install)
   * [GNU make via Chocolatey](https://community.chocolatey.org/packages/make)
-  * [NSIS](https://nsis.sourceforge.io/Download)
+  * [NSIS](https://nsis.sourceforge.io/Download) (optional, used for building an installer)
 
 Building:
 1. clone the ditherista git repository: ```git clone --recursive https://github.com/robertkist/ditherista.git```
@@ -132,3 +132,4 @@ Making Changes
 
 Help files exist in `src/help`. When adding, removing, or renaming help content, be sure to update the 
 `src/app/resources.qrc` file accordingly.
+
