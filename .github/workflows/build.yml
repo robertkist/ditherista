@@ -1,5 +1,10 @@
 name: Build Ditherista
 
+env:
+  QT_VERSION_WIN: "6.9.3"
+  QT_VERSION_MAC: "6.9.3"
+  QT_VERSION_NIX: "6.8.2"
+
 on:
   workflow_dispatch:
   push:
@@ -10,30 +15,204 @@ permissions:
   contents: write
 
 jobs:
-  build:
-    name: Build (${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: ubuntu-22.04
-            qt_arch: linux_gcc_64
-          - os: macos-latest
-            qt_arch: clang_64
-
+  build_win_msvc:
+    runs-on: windows-latest
     steps:
-      - name: Checkout
+      - name: Checkout (Windows MSVC)
         uses: actions/checkout@v4
         with:
           submodules: recursive
+    
+      - name: Install NSIS (Windows MSVC)
+        uses: negrutiu/nsis-install@v1
 
+      - name: Set up Make and Chocolatey (Windows MSVC)
+        uses: crazy-max/ghaction-chocolatey@v3
+        with:
+          args: 'install make'    
+
+      - name: Set up msbuild (Windows MSVC)
+        uses: microsoft/setup-msbuild@v2
+        with:
+          msbuild-architecture: x64
+    
+      - name: Set up Qt (Windows MSVC)
+        uses: jurplel/install-qt-action@v4
+        with:
+          target: 'desktop'
+          arch: win64_msvc2022_64
+          version: ${{ env.QT_VERSION_WIN }}
+          archives: 'qtbase qtdeclarative qtsvg qttools qttranslations'
+          setup-python: true
+          cache: true
+          add-tools-to-path: false
+          set-env: true
+
+      - name: Build libdither (Windows MSVC)
+        run: |
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+          make -C libdither libdither_msvc
+        shell: cmd     
+
+      - name: Build Ditherista (Windows MSVC)
+        run: |
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+          make WIN_QT_BIN_PATH_MSVC=%QT_ROOT_DIR%\bin app_msvc
+        shell: cmd       
+        
+      - name: Make Installer (Windows MSVC)
+        run: |
+          make WIN_NSIS_EXE=makensis installer_msvc
+        shell: cmd
+
+      - name: Package artifacts (Windows MSVC)
+        id: pkg
+        run: |
+          rm -R dist/ditherista
+          rm dist/vc_redist.x64.exe
+          ls dist
+          echo "dist_path=$GITHUB_WORKSPACE/dist" >> $GITHUB_OUTPUT
+        shell: bash        
+
+      - name: Upload artifacts (Windows MSVC)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ditherista-win64_msvc
+          path: ${{ steps.pkg.outputs.dist_path }}
+          if-no-files-found: warn
+          retention-days: 7      
+
+  build_win_mingw:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout (Windows MinGW)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+    
+      - name: Install NSIS (Windows MinGW)
+        uses: negrutiu/nsis-install@v1
+
+      - name: Set up Make and Chocolatey (Windows MinGW)
+        uses: crazy-max/ghaction-chocolatey@v3
+        with:
+          args: 'install make'    
+    
+      - name: Set up Qt (Windows MinGW)
+        uses: jurplel/install-qt-action@v4
+        with:
+          target: 'desktop'
+          arch: win64_mingw
+          version: ${{ env.QT_VERSION_WIN }}
+          archives: 'qtbase qtdeclarative qtsvg qttools qttranslations MinGW'
+          setup-python: true
+          cache: true
+          add-tools-to-path: false
+          set-env: true
+    
+      - name: Build libdither (Windows MinGW)
+        run: |
+          make -C libdither WIN_MINGW_BIN_PATH=%QT_ROOT_DIR%\bin libdither
+        shell: cmd   
+
+      - name: Build Ditherista (Windows MinGW)
+        run: |
+          make WIN_MINGW_BIN_PATH=%GITHUB_WORKSPACE%\Qt\${{ env.QT_VERSION_WIN }}\Tools\mingw1310_64\bin WIN_QT_BIN_PATH_MINGW=%GITHUB_WORKSPACE%\Qt\${{ env.QT_VERSION_WIN }}\mingw_64\bin app
+        shell: cmd   
+
+      - name: Make Installer (Windows MinGW)
+        run: |
+          make WIN_NSIS_EXE=makensis installer
+        shell: cmd
+
+      - name: Package artifacts (Windows MinGW)
+        id: pkg
+        run: |
+          rm -R dist/ditherista
+          ls dist
+          echo "dist_path=$GITHUB_WORKSPACE/dist" >> $GITHUB_OUTPUT
+        shell: bash        
+
+      - name: Upload artifacts (Windows MinGW)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ditherista-win64_mingw
+          path: ${{ steps.pkg.outputs.dist_path }}
+          if-no-files-found: warn
+          retention-days: 7   
+
+  build_macos_universal:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout (macOS)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+    
+      - name: Set up Qt (macOS)
+        uses: jurplel/install-qt-action@v4
+        with:
+          target: 'desktop'
+          arch: ${{ matrix.qt_arch }}
+          version: ${{ env.QT_VERSION_MAC }}
+          archives: 'qtbase qtdeclarative qtsvg qttools'
+          setup-python: true
+          cache: true
+          add-tools-to-path: true
+          set-env: true
+
+      - name: Qt/qmake environment (macOS)
+        run: |
+          echo "QT_ROOT_DIR=$QT_ROOT_DIR"
+          which qmake || where qmake
+          qmake -v
+        shell: bash
+
+      - name: Build libdither (macOS)
+        run: |
+          make -C libdither libdither_universal
+        shell: bash
+
+      - name: Build Ditherista (macOS)
+        run: |
+          make MAC_QT_BIN_PATH="$QT_ROOT_DIR/bin" app_universal
+        shell: bash
+
+      - name: Make .dmg (macOS)
+        run: |
+          make installer
+        shell: bash      
+
+      - name: Package artifacts (macOS)
+        id: pkg
+        run: |
+          rm -R dist/Ditherista.app
+          ls dist
+          echo "dist_path=$GITHUB_WORKSPACE/dist" >> $GITHUB_OUTPUT
+        shell: bash        
+
+      - name: Upload artifacts (macOS)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ditherista-macos_universal
+          path: ${{ steps.pkg.outputs.dist_path }}
+          if-no-files-found: warn
+          retention-days: 7     
+
+  build_linux_x86_64:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout (Linux)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+    
       - name: Set up Qt (Linux)
-        if: runner.os == 'Linux'
         uses: jurplel/install-qt-action@v4
         with:
           target: 'desktop'
           arch: linux_gcc_64
+          version: ${{ env.QT_VERSION_NIX }}
           archives: 'qtbase qtdeclarative qtsvg qttools'
           setup-python: true
           cache: true
@@ -41,7 +220,6 @@ jobs:
           set-env: true
 
       - name: Provision ICU 73 (Linux)
-        if: runner.os == 'Linux'
         uses: mamba-org/setup-micromamba@v2
         with:
           environment-name: qt-icu
@@ -51,7 +229,6 @@ jobs:
           cache-downloads: true
 
       - name: Install prerequisites (Linux)
-        if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential libgl1-mesa-dev patchelf libfuse2 dpkg-dev
@@ -60,7 +237,6 @@ jobs:
           sudo mv linuxdeployqt /usr/local/bin/linuxdeployqt
 
       - name: Qt/qmake environment (Linux)
-        if: runner.os == 'Linux'
         run: |
           eval "$(micromamba shell hook -s bash)"
           micromamba activate qt-icu
@@ -74,7 +250,6 @@ jobs:
         shell: bash -l {0}
 
       - name: Build libdither (Linux)
-        if: runner.os == 'Linux'
         run: |
           eval "$(micromamba shell hook -s bash)"
           micromamba activate qt-icu
@@ -82,7 +257,6 @@ jobs:
         shell: bash -l {0}
 
       - name: Build Ditherista (Linux)
-        if: runner.os == 'Linux'
         run: |
           eval "$(micromamba shell hook -s bash)"
           micromamba activate qt-icu
@@ -96,16 +270,14 @@ jobs:
           make QMAKE=qmake LUPDATE="$LUPDATE_BIN" LRELEASE="$LRELEASE_BIN" app
         shell: bash -l {0}
 
-      - name: Package Ditherista (.deb)
-        if: runner.os == 'Linux'
+      - name: Create .deb (Linux)
         run: |
           eval "$(micromamba shell hook -s bash)"
           micromamba activate qt-icu
           make installer
         shell: bash -l {0}
 
-      - name: Build Ditherista (AppImage)
-        if: runner.os == 'Linux'
+      - name: Create AppImage (Linux)
         run: |
           eval "$(micromamba shell hook -s bash)"
           micromamba activate qt-icu
@@ -114,8 +286,7 @@ jobs:
           make appimage
         shell: bash -l {0}
 
-      - name: Package Ditherista (tarball)
-        if: runner.os == 'Linux'
+      - name: Create tarball (Linux)
         run: |
           eval "$(micromamba shell hook -s bash)"
           micromamba activate qt-icu
@@ -124,63 +295,25 @@ jobs:
           make installer_tgz_full
         shell: bash -l {0}
 
-      - name: Set up Qt (macOS)
-        if: runner.os == 'macOS'
-        uses: jurplel/install-qt-action@v4
-        with:
-          target: 'desktop'
-          arch: ${{ matrix.qt_arch }}
-          archives: 'qtbase qtdeclarative qtsvg qttools'
-          setup-python: true
-          cache: true
-          add-tools-to-path: true
-          set-env: true
-
-      - name: Qt/qmake environment (macOS)
-        if: runner.os == 'macOS'
-        run: |
-          echo "QT_ROOT_DIR=$QT_ROOT_DIR"
-          which qmake || where qmake
-          qmake -v
-        shell: bash
-
-
-      - name: Build libdither (macOS)
-        if: runner.os == 'macOS'
-        run: |
-          make -C libdither libdither_universal
-        shell: bash
-
-
-      - name: Build Ditherista (macOS)
-        if: runner.os == 'macOS'
-        run: |
-          make MAC_QT_BIN_PATH="$QT_ROOT_DIR/bin" app_universal
-        shell: bash
-
-      - name: Package Ditherista (.dmg)
-        if: runner.os == 'macOS'
-        run: |
-          make installer
-        shell: bash
-
-      - name: Package artifacts
+      - name: Package artifacts (Linux)
         id: pkg
         run: |
-          echo "dist_path=$(pwd)/dist" >> $GITHUB_OUTPUT
-        shell: bash
+          rm -R dist/ditherista
+          ls dist
+          echo "dist_path=$GITHUB_WORKSPACE/dist" >> $GITHUB_OUTPUT
+        shell: bash        
 
-      - name: Upload artifacts
+      - name: Upload artifacts (Linux)
         uses: actions/upload-artifact@v4
         with:
-          name: ditherista-${{ runner.os }}
+          name: ditherista-linux_x86_64
           path: ${{ steps.pkg.outputs.dist_path }}
           if-no-files-found: warn
-          retention-days: 14
-
+          retention-days: 7  
+          
   release:
     name: Release
-    needs: build
+    needs: [build_win_msvc, build_win_mingw, build_macos_universal, build_linux_x86_64]
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     steps:
@@ -203,5 +336,29 @@ jobs:
           files: |
             release_artifacts/**/*.deb
             release_artifacts/**/*.AppImage
-            release_artifacts/**/*_full.tar.gz
+            release_artifacts/**/*.tar.gz
             release_artifacts/**/*.dmg
+            release_artifacts/**/*.exe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
