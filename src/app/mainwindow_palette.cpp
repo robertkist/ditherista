@@ -437,7 +437,7 @@ void MainWindow::updatePaletteColorSwatches(BytePalette* palette) {
     /* populates the color list with entries and color swatches, based on the given palette */
     ui->colorListWidget->clear();
     for (size_t i = 0; i < palette->size; i++) {
-        ui->colorListWidget->addColorEntry(i, BytePalette_get(palette, i));
+        ui->colorListWidget->addColorEntry((int)i, BytePalette_get(palette, i));
     }
     ui->colorListWidget->resizeColumnToContents(0);
     ui->colorListWidget->resizeColumnToContents(1);

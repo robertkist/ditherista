@@ -12,6 +12,8 @@ dist/
 dist_build/
 .vscode/
 about.ini
+.vs/
+*.vcxproj.*
 
 # Prerequisites
 *.d

@@ -3,19 +3,27 @@ QT += \
     gui \
     concurrent \
     svg \
-    network
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+    network \
+    widgets
 
 INCLUDEPATH += ../libdither/src/libdither
-LIBS += -L../libdither/dist -ldither
+CONFIG += c++20 lrelease embed_translations
+QMAKE_CXXFLAGS_RELEASE += -Wall -fno-common  -Os
 
-CONFIG += c++11
-QMAKE_CXXFLAGS_RELEASE += -Wall -Wextra -Wstrict-overflow -Wformat=2 -Wundef -fno-common -O3 \
-    -Os -Wpedantic -pedantic -Werror -Wno-c++20-attribute-extensions -Wno-c++20-extensions \
-    -std=gnu++20
-QMAKE_LFLAGS += "-Wl,-rpath,\'\$$ORIGIN\'"
-RC_ICONS = resources/appicon.ico
+!win32-msvc* {
+    LIBS += -L../libdither/dist -ldither
+    QMAKE_CXXFLAGS_RELEASE += -Wextra -Wstrict-overflow -Wformat=2 -Wundef -Wpedantic -Werror \
+                              -Wno-c++20-attribute-extensions -Wno-c++20-extensions -O3 -pedantic -std=gnu++20
+    QMAKE_LFLAGS += "-Wl,-rpath,\'\$$ORIGIN\'"
+}
+
+win32-msvc {
+    LIBS += -L../libdither/dist/Release -llibdither
+}
+
+win32 {
+    RC_ICONS = resources/appicon.ico
+}
 
 SOURCES += \
     modernredux/style.cpp \
@@ -107,9 +115,6 @@ RESOURCES += \
 
 TRANSLATIONS += \
     application_en_US.ts
-
-CONFIG += lrelease
-CONFIG += embed_translations
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
