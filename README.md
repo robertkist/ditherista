@@ -5,16 +5,18 @@
 Ditherista is a small Windows, Linux and macOS GUI application for creating color and black-and-white dithered images.
 It features easy import and export and over 90 different dithering methods.
 
+### Downloads for Windows, macOS and Linux ###
+
+* [Download from itch.io](https://kwramm.itch.io/ditherista)
+* [Download from Github Releases](https://github.com/robertkist/ditherista/releases)
+
+### Interface ###
+
 Main interface on macOS:
 
 <img src="extra/screenshots/screenshot_01.png" width="891" height="657">
 
 <img src="extra/screenshots/screenshot_02.png" width="882" height="764">
-
-### Downloads for Windows, macOS and Linux ###
-
-Both Ditherista Color (lastest version) and Ditherista Mono (previous version) can be found here:
-[Download from Github Releases](https://github.com/robertkist/ditherista/releases)
 
 ### Release Candidate ###
 
@@ -131,4 +133,5 @@ Dithering Examples
 Ditherista is powered by [libdither](https://github.com/robertkist/libdither) (from the same author).
 
 Please visit the [libdither](https://github.com/robertkist/libdither) repo to see color and mono dithering examples.
+
 
