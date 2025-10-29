@@ -25,7 +25,10 @@ void GraphicsPixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent* event) {
         QTemporaryFile tempFile;
         tempFile.setFileTemplate(fileNameTemplate);
         tempFile.setAutoRemove(false);
-        tempFile.open();
+        if (!tempFile.open()) {
+            view->setAcceptDrops(true);
+            return;
+        }
         const QString tempFileName = tempFile.fileName();
         // save image to temp file
         QImageWriter writer;

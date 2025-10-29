@@ -27,7 +27,9 @@ void HelpWindow::showEvent(QShowEvent*) {
 QString HelpWindow::loadResource(const QString& name){
     /* Loads a text based resource from the QRC file and returns it as string */
     QFile file(name);
-    file.open(QFile::ReadOnly);
+    if (!file.open(QFile::ReadOnly)) {
+        return QString();
+    }
     QString html = file.readAll();
     file.close();
     return html;

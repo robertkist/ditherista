@@ -10,6 +10,7 @@ class GraphicsView final : public QGraphicsView {
     Q_OBJECT
 signals:
     void loadImageSignal(QString fileName);
+    void loadVideoSignal(QString fileName);
     void zoomLevelChangedSignal(int zoomLevel);
 public:
     /* methods */

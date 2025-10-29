@@ -10,6 +10,7 @@ public:
     /* methods */
     FileManager();
     bool getOpenFileName(QString* fileName);
+    bool getOpenVideoName(QString* fileName);
     void setDirectory(const QString &directory);
     [[nodiscard]] bool isDefaultDirectory() const;
     void clearCurrentFileName();

@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
+#include <QTextDocument>
 
 /* a label which fades in and out; used to display user notifications overlay over the graphicsview */
 

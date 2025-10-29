@@ -107,7 +107,7 @@ void GraphicsView::resetScene(const int width, const int height) {
 }
 
 void GraphicsView::dropEvent(QDropEvent* event) {
-    /* a file has been dropped onto the graphics view. Trigger import if file is a supported image */
+    /* a file has been dropped onto the graphics view. Trigger import if file is a supported image or video */
     const QMimeData* mimedata = event->mimeData();
     if(!mimedata->hasUrls())
         return;
@@ -119,10 +119,22 @@ void GraphicsView::dropEvent(QDropEvent* event) {
             continue;
         QString fileName = url[i].toLocalFile();
         QFileInfo fileInfo(fileName);
+        QString suffix = "*." + fileInfo.suffix().toLower();
+        
+        // Check if it's a supported image
         for (int j = 0; j < FILE_FILTERS.count(); j++) {
-            if (QString suffix = "*." + fileInfo.suffix().toLower(); FILE_FILTERS[j] == suffix) {
+            if (FILE_FILTERS[j] == suffix) {
                 emit loadImageSignal(fileName);
                 resetTransform();
+                event->accept();
+                return;
+            }
+        }
+        
+        // Check if it's a supported video
+        for (int j = 0; j < VIDEO_FILTERS.count(); j++) {
+            if (VIDEO_FILTERS[j] == suffix) {
+                emit loadVideoSignal(fileName);
                 event->accept();
                 return;
             }

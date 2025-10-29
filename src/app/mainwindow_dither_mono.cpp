@@ -125,7 +125,9 @@ void MainWindow::ORD_IGR_cValueChangedSlot(double c) {
 void MainWindow::ALL_dither(uint8_t* out_buf) {
     /* Runs the Allebach ditherer */
     bool randomize = ui->ALL_randomize->isChecked();
-    fthread = QtConcurrent::run(kallebach_dither, imageHashMono.getSourceImage(), randomize, out_buf);
+    int dot_size = ui->dotSizeSpinBox->value();
+    int dot_spacing = ui->dotSpacingSpinBox->value();
+    fthread = QtConcurrent::run(kallebach_dither, imageHashMono.getSourceImage(), randomize, dot_size, dot_spacing, out_buf);
     runDitherThread();
 }
 
@@ -135,10 +137,12 @@ void MainWindow::GRD_dither(uint8_t* out_buf) {
     int width = ui->GRD_width->value();
     int height = ui->GRD_height->value();
     int minPixels = ui->GRD_minPixels->value();
+    int dot_size = ui->dotSizeSpinBox->value();
+    int dot_spacing = ui->dotSpacingSpinBox->value();
     DitherImage* image = imageHashMono.getSourceImage();
     // use std::bind as work-around for Qt5, where QtConcurrent::run only supports up to 5 arguments
     fthread = QtConcurrent::run(std::bind(&grid_dither, image, width, height,
-                                          minPixels, altAlgorithm, out_buf));
+                                          minPixels, altAlgorithm, dot_size, dot_spacing, out_buf));
     runDitherThread();
 }
 
@@ -149,7 +153,9 @@ void MainWindow::DBS_dither(uint8_t* out_buf) {
         notification->showText(tr("please wait..."), TIMEOUT_FOREVER); // only show if image is bigger than a certain size
     }
     int formula = ui->DBS_formula->currentIndex();
-    fthread = QtConcurrent::run(dbs_dither, image, formula, out_buf);
+    int dot_size = ui->dotSizeSpinBox->value();
+    int dot_spacing = ui->dotSpacingSpinBox->value();
+    fthread = QtConcurrent::run(dbs_dither, image, formula, dot_size, dot_spacing, out_buf);
     runDitherThread();
     if(image->width * image->height > DBS_PROGRESS_TRIGGER_SIZE) {
         notification->cancel();
@@ -173,8 +179,10 @@ void MainWindow::DOT_dither(uint8_t* out_buf, const SubDitherType n) {
         default: qDebug() << "WARNING: requested DOT ditherer " << n << " not found"; break;
     }
     if(dm != nullptr) {
+        int dot_size = ui->dotSizeSpinBox->value();
+        int dot_spacing = ui->dotSpacingSpinBox->value();
         fthread = QtConcurrent::run(dot_diffusion_dither, imageHashMono.getSourceImage(),
-                                    dm, cm, out_buf);
+                                    dm, cm, dot_size, dot_spacing, out_buf);
         runDitherThread();
         DotClassMatrix_free(cm);
         DotDiffusionMatrix_free(dm);
@@ -209,8 +217,10 @@ void MainWindow::ERR_dither(uint8_t* out_buf, const SubDitherType n) {
     if(matrix != nullptr) {
         double jitter = ui->ERR_jitter->value();
         bool serpentine = ui->ERR_serpentine->isChecked();
+        int dot_size = ui->dotSizeSpinBox->value();
+        int dot_spacing = ui->dotSpacingSpinBox->value();
         fthread = QtConcurrent::run(error_diffusion_dither, imageHashMono.getSourceImage(),
-                                    matrix, serpentine, jitter, out_buf);
+                                    matrix, serpentine, jitter, dot_size, dot_spacing, out_buf);
         runDitherThread();
         ErrorDiffusionMatrix_free(matrix);
     }
@@ -248,7 +258,9 @@ void MainWindow::LIP_dither(uint8_t* out_buf, const SubDitherType n) {
         default: qDebug() << "WARNING: requested VAR ditherer " << n << " not found"; break;
     }
     if(matrix != nullptr && coe != nullptr) {
-        fthread = QtConcurrent::run(dotlippens_dither, imageHashMono.getSourceImage(), matrix, coe, out_buf);
+        int dot_size = ui->dotSizeSpinBox->value();
+        int dot_spacing = ui->dotSpacingSpinBox->value();
+        fthread = QtConcurrent::run(dotlippens_dither, imageHashMono.getSourceImage(), matrix, coe, dot_size, dot_spacing, out_buf);
         runDitherThread();
         DotLippensCoefficients_free(coe);
         DotClassMatrix_free(matrix);
@@ -317,7 +329,9 @@ void MainWindow::ORD_dither(uint8_t* out_buf, const SubDitherType n) {
             case ORD_IGR: jitter = ui->ORD_IGR_jitter->value(); break;
             default: jitter = ui->ORD_jitter->value(); break;
         }
-        fthread = QtConcurrent::run(ordered_dither, imageHashMono.getSourceImage(), matrix, jitter, out_buf);
+        int dot_size = ui->dotSizeSpinBox->value();
+        int dot_spacing = ui->dotSpacingSpinBox->value();
+        fthread = QtConcurrent::run(ordered_dither, imageHashMono.getSourceImage(), matrix, jitter, dot_size, dot_spacing, out_buf);
         runDitherThread();
         OrderedDitherMatrix_free(matrix);
     }
@@ -336,7 +350,9 @@ void MainWindow::PAT_dither(uint8_t* out_buf, const SubDitherType n) {
         default: qDebug() << "WARNING: requested PAT ditherer " << n << " not found"; break;
     }
     if(pattern != nullptr) {
-        fthread = QtConcurrent::run(pattern_dither, imageHashMono.getSourceImage(), pattern, out_buf);
+        int dot_size = ui->dotSizeSpinBox->value();
+        int dot_spacing = ui->dotSpacingSpinBox->value();
+        fthread = QtConcurrent::run(pattern_dither, imageHashMono.getSourceImage(), pattern, dot_size, dot_spacing, out_buf);
         runDitherThread();
         TilePattern_free(pattern);
     }
@@ -351,22 +367,26 @@ void MainWindow::THR_dither(uint8_t* out_buf) {
         threshold = ui->THR_threshold->value();
     }
     double jitter = ui->THR_jitter->value();
-    fthread = QtConcurrent::run(threshold_dither, imageHashMono.getSourceImage(), threshold, jitter, out_buf);
+    int dot_size = ui->dotSizeSpinBox->value();
+    int dot_spacing = ui->dotSpacingSpinBox->value();
+    fthread = QtConcurrent::run(threshold_dither, imageHashMono.getSourceImage(), threshold, jitter, dot_size, dot_spacing, out_buf);
     runDitherThread();
 }
 
 void MainWindow::VAR_dither(uint8_t* out_buf, const SubDitherType n) {
     /* Runs the Variable Error Diffusion ditherer */
     bool serpentine = ui->VAR_serpentine->isChecked();
+    int dot_size = ui->dotSizeSpinBox->value();
+    int dot_spacing = ui->dotSpacingSpinBox->value();
     switch((SubDitherType)n) {
         case VAR_OST:
             fthread = QtConcurrent::run(variable_error_diffusion_dither,
-                                        imageHashMono.getSourceImage(), Ostromoukhov, serpentine, out_buf);
+                                        imageHashMono.getSourceImage(), Ostromoukhov, serpentine, dot_size, dot_spacing, out_buf);
             runDitherThread();
             break;
         case VAR_ZHF:
             fthread = QtConcurrent::run(variable_error_diffusion_dither,
-                                        imageHashMono.getSourceImage(), Zhoufang, serpentine, out_buf);
+                                        imageHashMono.getSourceImage(), Zhoufang, serpentine, dot_size, dot_spacing, out_buf);
             runDitherThread();
             break;
         default: qDebug() << "WARNING: requested VAR ditherer " << n << " not found"; break;
@@ -389,8 +409,22 @@ void MainWindow::RIM_dither(uint8_t* out_buf, const SubDitherType n) {
     }
     if(curve != nullptr) {
         const bool mod = ui->RIM_modRiemersma->isChecked();
-        fthread = QtConcurrent::run(riemersma_dither, imageHashMono.getSourceImage(), curve, !mod, out_buf);
+        int dot_size = ui->dotSizeSpinBox->value();
+        int dot_spacing = ui->dotSpacingSpinBox->value();
+        fthread = QtConcurrent::run(riemersma_dither, imageHashMono.getSourceImage(), curve, !mod, dot_size, dot_spacing, out_buf);
         runDitherThread();
         RiemersmaCurve_free(curve);
     }
+}
+
+void MainWindow::dotSizeValueChangedSlot(int value) {
+    /* Dot size spinBox changed */
+    Q_UNUSED(value);
+    forceReDitherSlot();
+}
+
+void MainWindow::dotSpacingValueChangedSlot(int value) {
+    /* Dot spacing spinBox changed */
+    Q_UNUSED(value);
+    forceReDitherSlot();
 }

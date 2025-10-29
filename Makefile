@@ -102,7 +102,12 @@ endef
 			LRELEASE=lrelease-qt6
 			LUPDATE=lupdate-qt6
 		endif
-		QMAKE=qmake
+		# Use Qt 6 if available, otherwise fallback to system qmake
+		ifneq ($(wildcard /usr/lib/qt6/bin/qmake),)
+			QMAKE=/usr/lib/qt6/bin/qmake
+		else
+			QMAKE=qmake
+		endif
 		DEPLOYQT=linuxdeployqt
 		RUNCMD=$(DISTDIR)/$(APPNAME)/$(APPNAME)
 		APPBUILD=app_deb
@@ -149,8 +154,8 @@ app_build:
 	$(call fn_mkdir,$(BUILDDIR))
 	$(call fn_make_about_ini,$(APP_VERSION),$(APP_HOMEPAGE),$(APP_YEAR))
 	$(HELP_COPY_CMD)
-	$(LUPDATE) src/app/application.pro
-	$(LRELEASE) src/app/application.pro
+	-$(LUPDATE) src/app/application.pro
+	-$(LRELEASE) src/app/application.pro
 	$(QMAKE) $(QMAKEOPTS) $(QTARCHS) src/app/application.pro -o $(BUILDDIR)/Makefile.qmake
 	@cd $(BUILDDIR) && $(MAKE) -f Makefile.qmake
 	@echo "application executable built successfully"

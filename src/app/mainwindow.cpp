@@ -45,6 +45,13 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     batchDitherDialog = new BatchDitherDialog(this);
     notification = new NotificationLabel(ui->graphicsView);
     updateCheck = new UpdateCheck(this);
+    // Create and insert video timeline widget
+    videoTimeline = new VideoTimeline(this);
+    QVBoxLayout* viewportLayout = qobject_cast<QVBoxLayout*>(ui->graphicsView->parentWidget()->layout());
+    if (viewportLayout) {
+        // Insert timeline between graphicsView (index 0) and statusBarWidget (index 1)
+        viewportLayout->insertWidget(1, videoTimeline);
+    }
     // populate widgets and set default values
     setDithererDefaults();           // default values for various ditherers
     addPredefinedPalettes();         // adds built in palettes (in resources/palettes) to the palette color combo
@@ -322,6 +329,12 @@ void MainWindow::loadImageFromFileSlot(const QString &fileName) {
                 fileManager.setDirectory(currentDirectory);
             }
             fileManager.clearCurrentFileName();
+            // Clear video path and disable export video action when loading regular image
+            currentVideoPath.clear();
+            videoTotalFrames = 0;
+            videoFps = 0.0;
+            videoTimeline->reset();
+            ui->actionExportVideo->setEnabled(false);
             loadImage(&image);
             setMouseBusy(false);
             return;

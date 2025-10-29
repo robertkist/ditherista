@@ -291,7 +291,7 @@
     <name>FileManager</name>
     <message>
         <location filename="filemanager.cpp" line="20"/>
-        <location filename="filemanager.cpp" line="46"/>
+        <location filename="filemanager.cpp" line="60"/>
         <source>Images</source>
         <translation type="unfinished"></translation>
     </message>
@@ -301,7 +301,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="filemanager.cpp" line="48"/>
+        <location filename="filemanager.cpp" line="33"/>
+        <source>Videos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="filemanager.cpp" line="34"/>
+        <source>All Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="filemanager.cpp" line="36"/>
+        <source>Open Video File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="filemanager.cpp" line="62"/>
         <source>Save Image File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -489,7 +504,7 @@
         <location filename="mainwindow.ui" line="3012"/>
         <location filename="mainwindow.ui" line="3272"/>
         <location filename="mainwindow.ui" line="3317"/>
-        <location filename="mainwindow.cpp" line="168"/>
+        <location filename="mainwindow.cpp" line="175"/>
         <source>Ordered Dither Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -554,21 +569,21 @@
     <message>
         <location filename="mainwindow.ui" line="2903"/>
         <location filename="mainwindow.ui" line="3353"/>
-        <location filename="mainwindow_ui.cpp" line="582"/>
+        <location filename="mainwindow_ui.cpp" line="586"/>
         <source>B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2971"/>
         <location filename="mainwindow.ui" line="3330"/>
-        <location filename="mainwindow_ui.cpp" line="581"/>
+        <location filename="mainwindow_ui.cpp" line="585"/>
         <source>A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2929"/>
         <location filename="mainwindow.ui" line="3360"/>
-        <location filename="mainwindow_ui.cpp" line="583"/>
+        <location filename="mainwindow_ui.cpp" line="587"/>
         <source>C</source>
         <translation type="unfinished"></translation>
     </message>
@@ -714,38 +729,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="566"/>
+        <location filename="mainwindow_ui.cpp" line="570"/>
         <source>LAB &apos;94</source>
         <oldsource>LAB &apos;76</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="568"/>
+        <location filename="mainwindow_ui.cpp" line="572"/>
         <source>Luminance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="569"/>
+        <location filename="mainwindow_ui.cpp" line="573"/>
         <source>HSV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="570"/>
+        <location filename="mainwindow_ui.cpp" line="574"/>
         <source>sRGB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="571"/>
+        <location filename="mainwindow_ui.cpp" line="575"/>
         <source>sRGB CCIR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="572"/>
+        <location filename="mainwindow_ui.cpp" line="576"/>
         <source>Linear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="573"/>
+        <location filename="mainwindow_ui.cpp" line="577"/>
         <source>Linear CCIR</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1094,78 +1109,98 @@ Choose a color comparison method between colors in the source image and colors i
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4784"/>
+        <location filename="mainwindow.ui" line="4786"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4791"/>
+        <location filename="mainwindow.ui" line="4793"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4804"/>
+        <location filename="mainwindow.ui" line="4806"/>
         <source>Open...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4807"/>
+        <location filename="mainwindow.ui" line="4809"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4815"/>
+        <location filename="mainwindow.ui" line="4814"/>
+        <source>Open Video...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4817"/>
+        <source>Ctrl+Shift+O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4825"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4818"/>
+        <location filename="mainwindow.ui" line="4828"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4826"/>
+        <location filename="mainwindow.ui" line="4836"/>
         <source>Save as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4829"/>
+        <location filename="mainwindow.ui" line="4839"/>
         <source>Ctrl+Shift+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4837"/>
-        <source>Copy</source>
+        <location filename="mainwindow.ui" line="4847"/>
+        <source>Export Video...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4840"/>
-        <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="4845"/>
-        <source>Paste</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="4848"/>
-        <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="4853"/>
-        <source>Help...</source>
+        <location filename="mainwindow.ui" line="4850"/>
+        <source>Ctrl+E</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4858"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4861"/>
+        <source>Ctrl+C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4866"/>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4869"/>
+        <source>Ctrl+V</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4874"/>
+        <source>Help...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="4879"/>
         <source>Changelog...</source>
         <oldsource>Changelog</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4863"/>
+        <location filename="mainwindow.ui" line="4884"/>
         <source>Check for Updates...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1180,822 +1215,822 @@ Choose a color comparison method between colors in the source image and colors i
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="644"/>
-        <location filename="mainwindow_ui.cpp" line="723"/>
-        <source>Blue Noise</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="638"/>
-        <location filename="mainwindow_ui.cpp" line="724"/>
-        <source>Bayer 2x2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="639"/>
-        <location filename="mainwindow_ui.cpp" line="725"/>
-        <source>Bayer 3x3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="640"/>
-        <location filename="mainwindow_ui.cpp" line="726"/>
-        <source>Bayer 4x4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="641"/>
+        <location filename="mainwindow_ui.cpp" line="648"/>
         <location filename="mainwindow_ui.cpp" line="727"/>
-        <source>Bayer 8x8</source>
+        <source>Blue Noise</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="642"/>
         <location filename="mainwindow_ui.cpp" line="728"/>
-        <source>Bayer 16x16</source>
+        <source>Bayer 2x2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="643"/>
         <location filename="mainwindow_ui.cpp" line="729"/>
-        <source>Bayer 32x32</source>
+        <source>Bayer 3x3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="657"/>
-        <location filename="mainwindow_ui.cpp" line="742"/>
-        <source>Dispersed Dots 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="658"/>
-        <location filename="mainwindow_ui.cpp" line="743"/>
-        <source>Dispersed Dots 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="678"/>
-        <location filename="mainwindow_ui.cpp" line="763"/>
-        <source>Void Dispersed Dots</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="669"/>
-        <location filename="mainwindow_ui.cpp" line="754"/>
-        <source>Non-Rectangular 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="670"/>
-        <location filename="mainwindow_ui.cpp" line="755"/>
-        <source>Non-Rectangular 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="671"/>
-        <location filename="mainwindow_ui.cpp" line="756"/>
-        <source>Non-Rectangular 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="672"/>
-        <location filename="mainwindow_ui.cpp" line="757"/>
-        <source>Non-Rectangular 4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="673"/>
-        <location filename="mainwindow_ui.cpp" line="758"/>
-        <source>Ulichney</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="674"/>
-        <location filename="mainwindow_ui.cpp" line="759"/>
-        <source>Ulichney Bayer 5x5</source>
+        <location filename="mainwindow_ui.cpp" line="644"/>
+        <location filename="mainwindow_ui.cpp" line="730"/>
+        <source>Bayer 4x4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="645"/>
-        <location filename="mainwindow_ui.cpp" line="730"/>
-        <source>Clustered Dot 1</source>
+        <location filename="mainwindow_ui.cpp" line="731"/>
+        <source>Bayer 8x8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="646"/>
-        <location filename="mainwindow_ui.cpp" line="731"/>
-        <source>Clustered Dot 2</source>
+        <location filename="mainwindow_ui.cpp" line="732"/>
+        <source>Bayer 16x16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="647"/>
-        <location filename="mainwindow_ui.cpp" line="732"/>
-        <source>Clustered Dot 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="648"/>
         <location filename="mainwindow_ui.cpp" line="733"/>
-        <source>Clustered Dot 4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="649"/>
-        <location filename="mainwindow_ui.cpp" line="734"/>
-        <source>Clustered Dot 5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="650"/>
-        <location filename="mainwindow_ui.cpp" line="735"/>
-        <source>Clustered Dot 6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="651"/>
-        <location filename="mainwindow_ui.cpp" line="736"/>
-        <source>Clustered Dot 7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="652"/>
-        <location filename="mainwindow_ui.cpp" line="737"/>
-        <source>Clustered Dot 8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="653"/>
-        <location filename="mainwindow_ui.cpp" line="738"/>
-        <source>Clustered Dot 9</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="654"/>
-        <location filename="mainwindow_ui.cpp" line="739"/>
-        <source>Clustered Dot 10</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="655"/>
-        <location filename="mainwindow_ui.cpp" line="740"/>
-        <source>Clustered Dot 11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="656"/>
-        <location filename="mainwindow_ui.cpp" line="741"/>
-        <source>Diagonal Ordered</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="675"/>
-        <location filename="mainwindow_ui.cpp" line="760"/>
-        <source>Ulichney Cluster Dot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="660"/>
-        <location filename="mainwindow_ui.cpp" line="745"/>
-        <source>Magic 5x5 Circle</source>
+        <source>Bayer 32x32</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="661"/>
         <location filename="mainwindow_ui.cpp" line="746"/>
-        <source>Magic 6x6 Circle</source>
+        <source>Dispersed Dots 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="662"/>
         <location filename="mainwindow_ui.cpp" line="747"/>
-        <source>Magic 7x7 Circle</source>
+        <source>Dispersed Dots 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="663"/>
-        <location filename="mainwindow_ui.cpp" line="748"/>
-        <source>Magic 4x4 45</source>
+        <location filename="mainwindow_ui.cpp" line="682"/>
+        <location filename="mainwindow_ui.cpp" line="767"/>
+        <source>Void Dispersed Dots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="664"/>
-        <location filename="mainwindow_ui.cpp" line="749"/>
-        <source>Magic 6x6 45</source>
+        <location filename="mainwindow_ui.cpp" line="673"/>
+        <location filename="mainwindow_ui.cpp" line="758"/>
+        <source>Non-Rectangular 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="665"/>
-        <location filename="mainwindow_ui.cpp" line="750"/>
-        <source>Magic 8x8 45</source>
+        <location filename="mainwindow_ui.cpp" line="674"/>
+        <location filename="mainwindow_ui.cpp" line="759"/>
+        <source>Non-Rectangular 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="666"/>
-        <location filename="mainwindow_ui.cpp" line="751"/>
-        <source>Magic 4x4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="667"/>
-        <location filename="mainwindow_ui.cpp" line="752"/>
-        <source>Magic 6x6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="668"/>
-        <location filename="mainwindow_ui.cpp" line="753"/>
-        <source>Magic 8x8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="595"/>
-        <source>Allebach</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="565"/>
-        <source>LAB &apos;76</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="567"/>
-        <source>LAB 2000</source>
-        <oldsource>LAB &apos;2000</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="574"/>
-        <source>Tetrapal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="597"/>
-        <source>DBS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="602"/>
-        <location filename="mainwindow_ui.cpp" line="632"/>
-        <source>Knuth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="605"/>
-        <source>Mini Knuth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="606"/>
-        <source>Optimized Knuth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="603"/>
-        <source>Mese 8x8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="604"/>
-        <location filename="mainwindow_ui.cpp" line="636"/>
-        <source>Mese 16x16</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="599"/>
-        <source>GuoLiu 8x8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="600"/>
-        <location filename="mainwindow_ui.cpp" line="631"/>
-        <source>GuoLiu 16x16</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="607"/>
-        <source>Spiral</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="601"/>
-        <source>Inverted Spiral</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="627"/>
-        <location filename="mainwindow_ui.cpp" line="721"/>
-        <source>Xot Diffusion</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="611"/>
-        <location filename="mainwindow_ui.cpp" line="705"/>
-        <source>Diagonal Dither</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="615"/>
-        <location filename="mainwindow_ui.cpp" line="709"/>
-        <source>Floyd Steinberg</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="620"/>
-        <location filename="mainwindow_ui.cpp" line="714"/>
-        <source>Shiau Fan 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="619"/>
-        <location filename="mainwindow_ui.cpp" line="713"/>
-        <source>Shiau Fan 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="618"/>
-        <location filename="mainwindow_ui.cpp" line="712"/>
-        <source>Shiau Fan 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="626"/>
-        <location filename="mainwindow_ui.cpp" line="720"/>
-        <source>Stucki</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="612"/>
-        <location filename="mainwindow_ui.cpp" line="706"/>
-        <source>Error Diffusion 1D</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="613"/>
-        <location filename="mainwindow_ui.cpp" line="707"/>
-        <source>Error Diffusion 2D</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="614"/>
-        <location filename="mainwindow_ui.cpp" line="708"/>
-        <source>Fake Floyd Steinberg</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="616"/>
-        <location filename="mainwindow_ui.cpp" line="710"/>
-        <source>Jarvis-Judice-Ninke</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="609"/>
-        <location filename="mainwindow_ui.cpp" line="703"/>
-        <source>Atkinson</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="610"/>
-        <location filename="mainwindow_ui.cpp" line="704"/>
-        <source>Burkes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="622"/>
-        <location filename="mainwindow_ui.cpp" line="716"/>
-        <source>Sierra 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="621"/>
-        <location filename="mainwindow_ui.cpp" line="715"/>
-        <source>Sierra 2-Row</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="623"/>
-        <location filename="mainwindow_ui.cpp" line="717"/>
-        <source>Sierra Lite</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="625"/>
-        <location filename="mainwindow_ui.cpp" line="719"/>
-        <source>Steve Pigeon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="617"/>
-        <location filename="mainwindow_ui.cpp" line="711"/>
-        <source>Robert Kist</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="576"/>
-        <source>D93</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="577"/>
-        <source>D75</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="578"/>
-        <source>D65</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="579"/>
-        <source>D55</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="580"/>
-        <source>D50</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="584"/>
-        <source>E (base)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="585"/>
-        <source>F1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="586"/>
-        <source>F2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="587"/>
-        <source>F3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="588"/>
-        <source>F7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="589"/>
-        <source>F11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="624"/>
-        <location filename="mainwindow_ui.cpp" line="718"/>
-        <source>Stevenson-Arce</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="629"/>
-        <source>Grid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="633"/>
-        <source>Lippens 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="634"/>
-        <source>Lippens 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="635"/>
-        <source>Lippens 3</source>
+        <location filename="mainwindow_ui.cpp" line="675"/>
+        <location filename="mainwindow_ui.cpp" line="760"/>
+        <source>Non-Rectangular 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="676"/>
         <location filename="mainwindow_ui.cpp" line="761"/>
-        <source>Variable 2x2</source>
+        <source>Non-Rectangular 4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="677"/>
         <location filename="mainwindow_ui.cpp" line="762"/>
-        <source>Variable 4x4</source>
+        <source>Ulichney</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="679"/>
-        <location filename="mainwindow_ui.cpp" line="764"/>
-        <source>White-Point (Central)</source>
+        <location filename="mainwindow_ui.cpp" line="678"/>
+        <location filename="mainwindow_ui.cpp" line="763"/>
+        <source>Ulichney Bayer 5x5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="680"/>
-        <location filename="mainwindow_ui.cpp" line="765"/>
-        <source>White-Point (Balanced)</source>
+        <location filename="mainwindow_ui.cpp" line="649"/>
+        <location filename="mainwindow_ui.cpp" line="734"/>
+        <source>Clustered Dot 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="650"/>
+        <location filename="mainwindow_ui.cpp" line="735"/>
+        <source>Clustered Dot 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="651"/>
+        <location filename="mainwindow_ui.cpp" line="736"/>
+        <source>Clustered Dot 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="652"/>
+        <location filename="mainwindow_ui.cpp" line="737"/>
+        <source>Clustered Dot 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="653"/>
+        <location filename="mainwindow_ui.cpp" line="738"/>
+        <source>Clustered Dot 5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="654"/>
+        <location filename="mainwindow_ui.cpp" line="739"/>
+        <source>Clustered Dot 6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="655"/>
+        <location filename="mainwindow_ui.cpp" line="740"/>
+        <source>Clustered Dot 7</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="656"/>
+        <location filename="mainwindow_ui.cpp" line="741"/>
+        <source>Clustered Dot 8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="657"/>
+        <location filename="mainwindow_ui.cpp" line="742"/>
+        <source>Clustered Dot 9</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="658"/>
+        <location filename="mainwindow_ui.cpp" line="743"/>
+        <source>Clustered Dot 10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="659"/>
         <location filename="mainwindow_ui.cpp" line="744"/>
-        <source>Interleaved Gradient</source>
+        <source>Clustered Dot 11</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="682"/>
-        <source>2x2 Pattern</source>
+        <location filename="mainwindow_ui.cpp" line="660"/>
+        <location filename="mainwindow_ui.cpp" line="745"/>
+        <source>Diagonal Ordered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="679"/>
+        <location filename="mainwindow_ui.cpp" line="764"/>
+        <source>Ulichney Cluster Dot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="664"/>
+        <location filename="mainwindow_ui.cpp" line="749"/>
+        <source>Magic 5x5 Circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="665"/>
+        <location filename="mainwindow_ui.cpp" line="750"/>
+        <source>Magic 6x6 Circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="666"/>
+        <location filename="mainwindow_ui.cpp" line="751"/>
+        <source>Magic 7x7 Circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="667"/>
+        <location filename="mainwindow_ui.cpp" line="752"/>
+        <source>Magic 4x4 45</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="668"/>
+        <location filename="mainwindow_ui.cpp" line="753"/>
+        <source>Magic 6x6 45</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="669"/>
+        <location filename="mainwindow_ui.cpp" line="754"/>
+        <source>Magic 8x8 45</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="670"/>
+        <location filename="mainwindow_ui.cpp" line="755"/>
+        <source>Magic 4x4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="671"/>
+        <location filename="mainwindow_ui.cpp" line="756"/>
+        <source>Magic 6x6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="672"/>
+        <location filename="mainwindow_ui.cpp" line="757"/>
+        <source>Magic 8x8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="599"/>
+        <source>Allebach</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="569"/>
+        <source>LAB &apos;76</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="571"/>
+        <source>LAB 2000</source>
+        <oldsource>LAB &apos;2000</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="578"/>
+        <source>Tetrapal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="601"/>
+        <source>DBS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="606"/>
+        <location filename="mainwindow_ui.cpp" line="636"/>
+        <source>Knuth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="609"/>
+        <source>Mini Knuth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="610"/>
+        <source>Optimized Knuth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="607"/>
+        <source>Mese 8x8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="608"/>
+        <location filename="mainwindow_ui.cpp" line="640"/>
+        <source>Mese 16x16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="603"/>
+        <source>GuoLiu 8x8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="604"/>
+        <location filename="mainwindow_ui.cpp" line="635"/>
+        <source>GuoLiu 16x16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="611"/>
+        <source>Spiral</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="605"/>
+        <source>Inverted Spiral</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="631"/>
+        <location filename="mainwindow_ui.cpp" line="725"/>
+        <source>Xot Diffusion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="615"/>
+        <location filename="mainwindow_ui.cpp" line="709"/>
+        <source>Diagonal Dither</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="619"/>
+        <location filename="mainwindow_ui.cpp" line="713"/>
+        <source>Floyd Steinberg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="624"/>
+        <location filename="mainwindow_ui.cpp" line="718"/>
+        <source>Shiau Fan 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="623"/>
+        <location filename="mainwindow_ui.cpp" line="717"/>
+        <source>Shiau Fan 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="622"/>
+        <location filename="mainwindow_ui.cpp" line="716"/>
+        <source>Shiau Fan 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="630"/>
+        <location filename="mainwindow_ui.cpp" line="724"/>
+        <source>Stucki</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="616"/>
+        <location filename="mainwindow_ui.cpp" line="710"/>
+        <source>Error Diffusion 1D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="617"/>
+        <location filename="mainwindow_ui.cpp" line="711"/>
+        <source>Error Diffusion 2D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="618"/>
+        <location filename="mainwindow_ui.cpp" line="712"/>
+        <source>Fake Floyd Steinberg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="620"/>
+        <location filename="mainwindow_ui.cpp" line="714"/>
+        <source>Jarvis-Judice-Ninke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="613"/>
+        <location filename="mainwindow_ui.cpp" line="707"/>
+        <source>Atkinson</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="614"/>
+        <location filename="mainwindow_ui.cpp" line="708"/>
+        <source>Burkes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="626"/>
+        <location filename="mainwindow_ui.cpp" line="720"/>
+        <source>Sierra 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="625"/>
+        <location filename="mainwindow_ui.cpp" line="719"/>
+        <source>Sierra 2-Row</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="627"/>
+        <location filename="mainwindow_ui.cpp" line="721"/>
+        <source>Sierra Lite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="629"/>
+        <location filename="mainwindow_ui.cpp" line="723"/>
+        <source>Steve Pigeon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="621"/>
+        <location filename="mainwindow_ui.cpp" line="715"/>
+        <source>Robert Kist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="580"/>
+        <source>D93</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="581"/>
+        <source>D75</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="582"/>
+        <source>D65</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="583"/>
+        <source>D55</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="584"/>
+        <source>D50</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="588"/>
+        <source>E (base)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="589"/>
+        <source>F1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="590"/>
+        <source>F2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="591"/>
+        <source>F3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="592"/>
+        <source>F7</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="593"/>
+        <source>F11</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="628"/>
+        <location filename="mainwindow_ui.cpp" line="722"/>
+        <source>Stevenson-Arce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="633"/>
+        <source>Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="637"/>
+        <source>Lippens 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="638"/>
+        <source>Lippens 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="639"/>
+        <source>Lippens 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="680"/>
+        <location filename="mainwindow_ui.cpp" line="765"/>
+        <source>Variable 2x2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="681"/>
+        <location filename="mainwindow_ui.cpp" line="766"/>
+        <source>Variable 4x4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="683"/>
-        <source>3x3 Pattern 1</source>
+        <location filename="mainwindow_ui.cpp" line="768"/>
+        <source>White-Point (Central)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="684"/>
-        <source>3x3 Pattern 2</source>
+        <location filename="mainwindow_ui.cpp" line="769"/>
+        <source>White-Point (Balanced)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="685"/>
-        <source>3x3 Pattern 3</source>
+        <location filename="mainwindow_ui.cpp" line="663"/>
+        <location filename="mainwindow_ui.cpp" line="748"/>
+        <source>Interleaved Gradient</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="686"/>
-        <source>4x4 Pattern</source>
+        <source>2x2 Pattern</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="687"/>
-        <source>5x2 Pattern</source>
+        <source>3x3 Pattern 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="694"/>
-        <source>Hilbert Curve</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="695"/>
-        <source>Hilbert Mod Curve</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="696"/>
-        <source>Peano Curve</source>
+        <location filename="mainwindow_ui.cpp" line="688"/>
+        <source>3x3 Pattern 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="689"/>
-        <source>Fass 0 Curve</source>
+        <source>3x3 Pattern 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="690"/>
-        <source>Fass 1 Curve</source>
+        <source>4x4 Pattern</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="691"/>
-        <source>Fass 2 Curve</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="693"/>
-        <source>Gosper Curve</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow_ui.cpp" line="692"/>
-        <source>Fass Spiral</source>
+        <source>5x2 Pattern</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="698"/>
-        <source>Threshold Dither</source>
+        <source>Hilbert Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="699"/>
+        <source>Hilbert Mod Curve</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_ui.cpp" line="700"/>
+        <source>Peano Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="693"/>
+        <source>Fass 0 Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="694"/>
+        <source>Fass 1 Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="695"/>
+        <source>Fass 2 Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="697"/>
+        <source>Gosper Curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="696"/>
+        <source>Fass Spiral</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="702"/>
+        <source>Threshold Dither</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_ui.cpp" line="704"/>
         <source>Ostromoukhov</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="701"/>
+        <location filename="mainwindow_ui.cpp" line="705"/>
         <source>ZhouFang</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="495"/>
+        <location filename="mainwindow_ui.cpp" line="499"/>
         <source>Computer Systems</source>
         <oldsource>Computers</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="500"/>
+        <location filename="mainwindow_ui.cpp" line="504"/>
         <source>TRS-80 1 (4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="501"/>
+        <location filename="mainwindow_ui.cpp" line="505"/>
         <source>TRS-80 2 (4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="502"/>
+        <location filename="mainwindow_ui.cpp" line="506"/>
         <source>Teletext (8)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="503"/>
+        <location filename="mainwindow_ui.cpp" line="507"/>
         <source>Sam Coupé (14)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="504"/>
+        <location filename="mainwindow_ui.cpp" line="508"/>
         <source>MSX (15)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="505"/>
+        <location filename="mainwindow_ui.cpp" line="509"/>
         <source>ZX Spectrum (15)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="507"/>
+        <location filename="mainwindow_ui.cpp" line="511"/>
         <source>VIC 20 (16)</source>
         <oldsource>C64 (16)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="508"/>
+        <location filename="mainwindow_ui.cpp" line="512"/>
         <source>C64 1 (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="509"/>
+        <location filename="mainwindow_ui.cpp" line="513"/>
         <source>C64 2 (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="511"/>
+        <location filename="mainwindow_ui.cpp" line="515"/>
         <source>Macintosh (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="512"/>
+        <location filename="mainwindow_ui.cpp" line="516"/>
         <source>Windows (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="513"/>
+        <location filename="mainwindow_ui.cpp" line="517"/>
         <source>Amstrad CPC (27)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="514"/>
+        <location filename="mainwindow_ui.cpp" line="518"/>
         <source>Windows 95 (256)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="515"/>
+        <location filename="mainwindow_ui.cpp" line="519"/>
         <source>Macintosh (256)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="516"/>
+        <location filename="mainwindow_ui.cpp" line="520"/>
         <source>MSX 2 (256)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="518"/>
+        <location filename="mainwindow_ui.cpp" line="522"/>
         <source>Applications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="521"/>
+        <location filename="mainwindow_ui.cpp" line="525"/>
         <source>Degas Elite (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="525"/>
+        <location filename="mainwindow_ui.cpp" line="529"/>
         <source>Deluxe Paint Amiga (32)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="526"/>
+        <location filename="mainwindow_ui.cpp" line="530"/>
         <source>Micrografx Draw&apos;n&apos;Publish (58)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="527"/>
+        <location filename="mainwindow_ui.cpp" line="531"/>
         <source>Deluxe Paint Amiga EHB (63)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="528"/>
+        <location filename="mainwindow_ui.cpp" line="532"/>
         <source>Deluxe Paint PC/AGA (223)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="529"/>
+        <location filename="mainwindow_ui.cpp" line="533"/>
         <source>Autodesk Animator (251)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="531"/>
+        <location filename="mainwindow_ui.cpp" line="535"/>
         <source>Consoles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="533"/>
+        <location filename="mainwindow_ui.cpp" line="537"/>
         <source>Playdate (2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="534"/>
+        <location filename="mainwindow_ui.cpp" line="538"/>
         <source>Gameboy (4)</source>
         <oldsource>    Gameboy (4)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="535"/>
+        <location filename="mainwindow_ui.cpp" line="539"/>
         <source>Gameboy Pocket (4)</source>
         <oldsource>Gameboy 2 (4)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="536"/>
+        <location filename="mainwindow_ui.cpp" line="540"/>
         <source>Fairchild Channel F (8)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="537"/>
+        <location filename="mainwindow_ui.cpp" line="541"/>
         <source>ColecoVision (15)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="539"/>
+        <location filename="mainwindow_ui.cpp" line="543"/>
         <source>Magnavox Odyssey 2 (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="540"/>
+        <location filename="mainwindow_ui.cpp" line="544"/>
         <source>Mattel Intellivision (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="544"/>
+        <location filename="mainwindow_ui.cpp" line="548"/>
         <source>Other Palettes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="546"/>
+        <location filename="mainwindow_ui.cpp" line="550"/>
         <source>RGB 4 bit (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="547"/>
+        <location filename="mainwindow_ui.cpp" line="551"/>
         <source>RGB 6 bit (64)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="548"/>
+        <location filename="mainwindow_ui.cpp" line="552"/>
         <source>RGB 9 bit (512)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="549"/>
+        <location filename="mainwindow_ui.cpp" line="553"/>
         <source>RGB 6 levels (216)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="550"/>
+        <location filename="mainwindow_ui.cpp" line="554"/>
         <source>RGB 6-8-5 levels (240)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="551"/>
+        <location filename="mainwindow_ui.cpp" line="555"/>
         <source>RGB 6-7-6 levels (252)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="552"/>
+        <location filename="mainwindow_ui.cpp" line="556"/>
         <source>RGB 8-8-4 levels (256)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="126"/>
+        <location filename="mainwindow.cpp" line="133"/>
         <source>Dot Diffusion Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="150"/>
+        <location filename="mainwindow.cpp" line="157"/>
         <source>Dot Lippens Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="196"/>
+        <location filename="mainwindow.cpp" line="203"/>
         <source>Pattern Dither Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2073,14 +2108,14 @@ Do you want to save the existing palette?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="302"/>
+        <location filename="mainwindow.cpp" line="309"/>
         <source>file saved successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="307"/>
-        <location filename="mainwindow.cpp" line="331"/>
-        <location filename="mainwindow.cpp" line="338"/>
+        <location filename="mainwindow.cpp" line="314"/>
+        <location filename="mainwindow.cpp" line="344"/>
+        <location filename="mainwindow.cpp" line="351"/>
         <location filename="mainwindow_palette.cpp" line="153"/>
         <location filename="mainwindow_palette.cpp" line="260"/>
         <location filename="mainwindow_palette.cpp" line="264"/>
@@ -2090,117 +2125,173 @@ Do you want to save the existing palette?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="308"/>
+        <location filename="mainwindow.cpp" line="315"/>
         <source>failed to save file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="332"/>
+        <location filename="mainwindow.cpp" line="345"/>
         <source>failed to load image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="339"/>
+        <location filename="mainwindow.cpp" line="352"/>
         <source>image resolution is bigger than 4k</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="497"/>
+        <location filename="mainwindow_ui.cpp" line="501"/>
         <source>CGA 1 (4)</source>
         <oldsource>    CGA 1 (4)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="498"/>
+        <location filename="mainwindow_ui.cpp" line="502"/>
         <source>CGA 2 (4)</source>
         <oldsource>    CGA 2 (4)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="499"/>
+        <location filename="mainwindow_ui.cpp" line="503"/>
         <source>CGA 3 (4)</source>
         <oldsource>    CGA 3 (4)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="506"/>
+        <location filename="mainwindow_ui.cpp" line="510"/>
         <source>EGA (16)</source>
         <oldsource>    EGA (16)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="510"/>
+        <location filename="mainwindow_ui.cpp" line="514"/>
         <source>Risc OS 3 (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="520"/>
+        <location filename="mainwindow_ui.cpp" line="524"/>
         <source>MagicWB Amiga (8)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="522"/>
+        <location filename="mainwindow_ui.cpp" line="526"/>
         <source>MS Paint Windows 7 (20)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="523"/>
+        <location filename="mainwindow_ui.cpp" line="527"/>
         <source>MS Paint XP (28)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="524"/>
+        <location filename="mainwindow_ui.cpp" line="528"/>
         <source>MS Paint Windows Vista (28)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="538"/>
+        <location filename="mainwindow_ui.cpp" line="542"/>
         <source>Pico-8 (16)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="541"/>
+        <location filename="mainwindow_ui.cpp" line="545"/>
         <source>NES (55)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="542"/>
+        <location filename="mainwindow_ui.cpp" line="546"/>
         <source>Sega Master System (64)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="554"/>
+        <location filename="mainwindow_ui.cpp" line="558"/>
         <source>Gradients</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="556"/>
+        <location filename="mainwindow_ui.cpp" line="560"/>
         <source>black and white (2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="557"/>
+        <location filename="mainwindow_ui.cpp" line="561"/>
         <source>grayscale (4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="558"/>
+        <location filename="mainwindow_ui.cpp" line="562"/>
         <source>Citrink by Inkpendude (8)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="559"/>
+        <location filename="mainwindow_ui.cpp" line="563"/>
         <source>Paper 8 by Frosty Rabbid (8)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow_ui.cpp" line="560"/>
+        <location filename="mainwindow_ui.cpp" line="564"/>
         <source>SPACE DUST 9 by Hana (9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow_helpers.cpp" line="66"/>
         <source>copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="79"/>
+        <source>Video Files (*.mp4 *.avi *.mov *.mkv)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="22"/>
+        <location filename="mainwindow_video.cpp" line="35"/>
+        <location filename="mainwindow_video.cpp" line="94"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="23"/>
+        <source>Failed to read video information. Make sure FFmpeg is installed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="36"/>
+        <source>Failed to extract preview frame from video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="53"/>
+        <source>Video loaded: %1
+%2x%3, %4 fps, %5 frames
+
+Use timeline to preview different frames.
+Adjust dithering settings, then use File → Export Video to process the entire video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="67"/>
+        <source>No Video Loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="68"/>
+        <source>Please load a video file first using File → Open Video or drag &amp; drop.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="77"/>
+        <source>Export Dithered Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="95"/>
+        <source>Failed to read video information.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow_video.cpp" line="102"/>
+        <source>Extracting frames from video...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2251,6 +2342,178 @@ Do you want to save the existing palette?</source>
     <message>
         <location filename="updatecheck.ui" line="231"/>
         <source>An error occurred while checking for updates.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VideoProcessDialog</name>
+    <message>
+        <location filename="videoprocessdialog.ui" line="14"/>
+        <location filename="videoprocessdialog.cpp" line="10"/>
+        <source>Processing Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.ui" line="20"/>
+        <source>Processing video...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.ui" line="36"/>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.ui" line="42"/>
+        <source>QLabel { background-color: #1e1e1e; border: 1px solid #3e3e3e; }</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.ui" line="49"/>
+        <source>Frame 0 of 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.ui" line="68"/>
+        <source>Total frames: 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.ui" line="88"/>
+        <source>0%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.ui" line="112"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.cpp" line="26"/>
+        <source>Total frames: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.cpp" line="31"/>
+        <source>Processing frame %1 of %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.cpp" line="54"/>
+        <source>Error: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.cpp" line="59"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessdialog.cpp" line="73"/>
+        <source>Cancelling...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VideoProcessor</name>
+    <message>
+        <location filename="videoprocessor.cpp" line="35"/>
+        <source>FFmpeg not found. Please install FFmpeg to process videos.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="120"/>
+        <source>Temporary directory is not valid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="145"/>
+        <location filename="videoprocessor.cpp" line="177"/>
+        <location filename="videoprocessor.cpp" line="244"/>
+        <source>Processing cancelled by user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="151"/>
+        <source>Failed to extract video frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="152"/>
+        <source>Frame extraction failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="168"/>
+        <source>No frames extracted from video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="169"/>
+        <source>No frames found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="196"/>
+        <source>Failed to save dithered frame: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="207"/>
+        <source>Failed to start video encoding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="208"/>
+        <source>Encoding failed to start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="250"/>
+        <source>Failed to encode video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="251"/>
+        <source>Video encoding failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="253"/>
+        <source>Video processed successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="271"/>
+        <source>Video processor is busy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="276"/>
+        <source>FFmpeg is not installed or not in PATH. Please install FFmpeg to process videos.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videoprocessor.cpp" line="281"/>
+        <source>Failed to get video information</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VideoTimeline</name>
+    <message>
+        <location filename="videotimeline.cpp" line="37"/>
+        <source>Previous frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videotimeline.cpp" line="45"/>
+        <source>Drag to navigate through video frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="videotimeline.cpp" line="49"/>
+        <source>Next frame</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

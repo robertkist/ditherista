@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="i18n">
+<file alias="application_en_US.qm">/home/bb/Media/ditherista/src/app/.qm/application_en_US.qm</file>
+</qresource>
+</RCC>

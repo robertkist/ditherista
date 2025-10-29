@@ -19,6 +19,7 @@ public:
     void setSourceImage(const QImage* img);
     void setImageFromDither(int i, const uint8_t* out_buf);
     [[nodiscard]] DitherImage* getSourceImage() const;
+    [[nodiscard]] DitherImage* getOrigLinear() const { return origLinear; }
     void adjustSource();
 
     /* attributes */

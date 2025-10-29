@@ -4,6 +4,7 @@
 #include "../../../libdither/src/libdither/libdither.h"
 #include <QFile>
 #include <QSettings>
+#include <QTextStream>
 
 AboutWindow::AboutWindow(QWidget *parent) : QDialog(parent), ui(new Ui::AboutWindow) {
     /* Constructor - prepares the about dialog and loads license from resources */
@@ -24,7 +25,10 @@ AboutWindow::AboutWindow(QWidget *parent) : QDialog(parent), ui(new Ui::AboutWin
 
     // load licenses file
     QFile file(":/resources/license.txt");
-    file.open(QIODevice::ReadOnly);
+    if (!file.open(QIODevice::ReadOnly)) {
+        ui->licenseLabel->setText("Failed to load license");
+        return;
+    }
     QTextStream in(&file);
     QString license = in.readAll();
     file.close();

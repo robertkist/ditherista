@@ -67,6 +67,7 @@ inline constexpr int DBS_PROGRESS_TRIGGER_SIZE = 256 * 256;  // image size when 
 // supported file types
 inline static QStringList PALETTE_FILE_FILTERS = {"*.txt", "*.pal"};
 inline static QStringList FILE_FILTERS = {"*.jpg", "*.jpeg", "*.png", "*.bmp"};
+inline static QStringList VIDEO_FILTERS = {"*.mp4", "*.avi", "*.mov", "*.mkv", "*.webm"};
 inline static QStringList PALETTE_FILTERS = {"*.pal", "*.txt"};
 
 // viewport/GraphicsView zoom

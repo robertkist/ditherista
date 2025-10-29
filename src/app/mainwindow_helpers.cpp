@@ -78,6 +78,9 @@ void MainWindow::pasteSlot() {
         } else { // pasted content is a supported image
             const QImage image = clipboard->image(QClipboard::Clipboard);
             if (!image.isNull()) {
+                // Clear video path and disable export video action when pasting regular image
+                currentVideoPath.clear();
+                ui->actionExportVideo->setEnabled(false);
                 loadImage(&image);
             }
         }

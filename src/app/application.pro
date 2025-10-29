@@ -4,7 +4,9 @@ QT += \
     concurrent \
     svg \
     network \
-    widgets
+    widgets \
+    multimedia \
+    multimediawidgets
 
 INCLUDEPATH += ../libdither/src/libdither
 CONFIG += c++20 lrelease embed_translations
@@ -53,6 +55,7 @@ SOURCES += \
     mainwindow_img_adjust.cpp \
     mainwindow_palette.cpp \
     mainwindow_helpers.cpp \
+    mainwindow_video.cpp \
     treewidget.cpp \
     imagehash/imagehash.cpp \
     imagehash/imagehashcolor.cpp \
@@ -63,7 +66,10 @@ SOURCES += \
     colortree.cpp \
     colortreedelegate.cpp \
     ui_elements/colorcopymenu.cpp \
-    ui_elements/sectioncombobox.cpp
+    ui_elements/sectioncombobox.cpp \
+    videoprocessor.cpp \
+    videoprocessdialog.cpp \
+    videotimeline.cpp
 
 HEADERS += \
     modernredux/style.h \
@@ -97,7 +103,10 @@ HEADERS += \
     colortreedelegate.h \
     ui_elements/colorcopymenu.h \
     ui_elements/signalblocker.h \
-    ui_elements/sectioncombobox.h
+    ui_elements/sectioncombobox.h \
+    videoprocessor.h \
+    videoprocessdialog.h \
+    videotimeline.h
 
 FORMS += \
     mainwindow.ui \
@@ -107,7 +116,8 @@ FORMS += \
     batch/batchditherprogress.ui \
     batch/ditherresults.ui \
     batch/fileexistsdialog.ui \
-    updatecheck.ui
+    updatecheck.ui \
+    videoprocessdialog.ui
 
 RESOURCES += \
     modernredux/modernredux.qrc \

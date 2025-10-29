@@ -2073,6 +2073,85 @@
             </widget>
            </item>
            <item>
+            <widget class="QGroupBox" name="commonDitherSettings">
+             <property name="title">
+              <string>Common Dither Settings</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_common_dither">
+              <property name="leftMargin">
+               <number>10</number>
+              </property>
+              <property name="topMargin">
+               <number>8</number>
+              </property>
+              <property name="rightMargin">
+               <number>10</number>
+              </property>
+              <property name="bottomMargin">
+               <number>10</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_dot_size">
+                <property name="text">
+                 <string>Dot Size</string>
+                </property>
+                <property name="toolTip">
+                 <string>Size of each dithered dot in pixels</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="dotSizeSpinBox">
+                <property name="toolTip">
+                 <string>Size of each dithered dot in pixels</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>20</number>
+                </property>
+                <property name="value">
+                 <number>1</number>
+                </property>
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_dot_spacing">
+                <property name="text">
+                 <string>Dot Spacing</string>
+                </property>
+                <property name="toolTip">
+                 <string>Spacing between dots in pixels</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="dotSpacingSpinBox">
+                <property name="toolTip">
+                 <string>Spacing between dots in pixels</string>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="maximum">
+                 <number>20</number>
+                </property>
+                <property name="value">
+                 <number>0</number>
+                </property>
+                <property name="keyboardTracking">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
             <widget class="StackedWidget" name="ditherSettings">
              <property name="enabled">
               <bool>true</bool>
@@ -4776,8 +4855,10 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen"/>
+    <addaction name="actionOpenVideo"/>
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
+    <addaction name="actionExportVideo"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -4807,6 +4888,14 @@
     <string>Ctrl+O</string>
    </property>
   </action>
+  <action name="actionOpenVideo">
+   <property name="text">
+    <string>Open Video...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
+   </property>
+  </action>
   <action name="actionSave">
    <property name="enabled">
     <bool>false</bool>
@@ -4827,6 +4916,17 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionExportVideo">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Export Video...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
    </property>
   </action>
   <action name="actionCopy">

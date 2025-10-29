@@ -8,7 +8,9 @@
 
 void setModernReduxStyleSheet(QWidget* window) {
     QFile file(":/modernredux/stylesheet.qss");
-    file.open(QFile::ReadOnly);
+    if (!file.open(QFile::ReadOnly)) {
+        return;
+    }
     QString styleSheet = file.readAll();
     file.close();
     window->setStyleSheet(styleSheet);

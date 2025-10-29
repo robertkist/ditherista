@@ -230,6 +230,8 @@ void MainWindow::connectSignals() {
     connect(ui->actionSave, SIGNAL(triggered()), this, SLOT(fileSaveSlot()));
     connect(ui->actionSaveAs, SIGNAL(triggered()), this, SLOT(fileSaveAsSlot()));
     connect(ui->actionOpen, SIGNAL(triggered()), this, SLOT(fileOpenSlot()));
+    connect(ui->actionOpenVideo, SIGNAL(triggered()), this, SLOT(fileOpenVideoSlot()));
+    connect(ui->actionExportVideo, SIGNAL(triggered()), this, SLOT(exportVideoSlot()));
     connect(ui->actionCopy, SIGNAL(triggered()), this, SLOT(copySlot()));
     connect(ui->actionPaste, SIGNAL(triggered()), this, SLOT(pasteSlot()));
     connect(ui->actionQuickTour, SIGNAL(triggered()), helpWindow, SLOT(showHelp()));
@@ -258,6 +260,9 @@ void MainWindow::connectSignals() {
     connect(ui->GRD_width, SIGNAL(valueChanged(int)), this, SLOT(GRD_widthValueChangedSlot(int)), Qt::QueuedConnection);
     connect(ui->GRD_height, SIGNAL(valueChanged(int)), this, SLOT(GRD_heightValueChangedSlot(int)), Qt::QueuedConnection);
     connect(ui->GRD_minPixels, SIGNAL(valueChanged(int)), this, SLOT(GRD_minPixelsValueChangedSlot(int)), Qt::QueuedConnection);
+    // connect signals - common dither controls
+    connect(ui->dotSizeSpinBox, SIGNAL(valueChanged(int)), this, SLOT(dotSizeValueChangedSlot(int)), Qt::QueuedConnection);
+    connect(ui->dotSpacingSpinBox, SIGNAL(valueChanged(int)), this, SLOT(dotSpacingValueChangedSlot(int)), Qt::QueuedConnection);
     // connect signals - ditherer specific GUI controls / color
     connect(ui->ERR_C_serpentine, SIGNAL(toggled(bool)), this, SLOT(serpentineColorToggledSlot(bool)));
     connect(ui->ORD_IGR_C_step, SIGNAL(valueChanged(int)), this, SLOT(ORD_stepColorValueChangedSlot(int)), Qt::QueuedConnection);
@@ -307,6 +312,8 @@ void MainWindow::connectSignals() {
     connect(ui->predefinedPaletteCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(predefinedPaletteComboChangedSlot(int)));
     connect(ui->colorComparisonCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(colorComparisonComboChangedSlot(int)));
     connect(ui->graphicsView, SIGNAL(loadImageSignal(QString)), this, SLOT(loadImageFromFileSlot(QString)));
+    connect(ui->graphicsView, SIGNAL(loadVideoSignal(QString)), this, SLOT(loadVideoSlot(QString)));
+    connect(videoTimeline, &VideoTimeline::frameChanged, this, &MainWindow::videoFrameChangedSlot);
     connect(ui->paletteBrowseButton, SIGNAL(clicked()), this, SLOT(paletteBrowseButtonClickedSlot()));
     connect(ui->palettePathEdit, SIGNAL(editingFinished()), this, SLOT(palettePathEditEditingFinishedSlot()));
     connect(ui->paletteColorsEdit, SIGNAL(editingFinished()), this, SLOT(paletteColorsEditEditingFinishedSlot()));

@@ -14,6 +14,7 @@
 #include "ui_elements/mouseeventfilter.h"
 #include "updatecheck.h"
 #include "batch/batchditherdialog.h"
+#include "videotimeline.h"
 #include <QTreeWidgetItem>
 #include <QFuture>
 #include <QMainWindow>
@@ -68,6 +69,7 @@ private:
     NotificationLabel* notification;        // notification area inside the viewport
     MouseEventFilter eventFilter;           // filters out undesired mouse events
     QNetworkAccessManager* networkAccessManager{};  // manager http update checks
+    VideoTimeline* videoTimeline = nullptr; // timeline widget for video frame navigation
     // program state
     bool isDithering = false;               // true while dithering in progress
     bool firstLoad = true;                  // true if no image has been loaded yet
@@ -76,6 +78,9 @@ private:
     QString lastLoadedPalette;              // file name of the last palette loaded from external file
     QString lastBuiltInPalette;             // resource name of the last loaded built-in palette
     TreeWidget* activeTreeWidget = nullptr; // either colorTreeWidget or monoTreeWidget (based on active tab)
+    QString currentVideoPath;               // path to the currently loaded video file
+    int videoTotalFrames = 0;               // total number of frames in the loaded video
+    double videoFps = 0.0;                  // frames per second of the loaded video
     // dithering
     QFuture<void> fthread;                 // thread for dithering
     ImageHashMono imageHashMono;           // caching for already dithered images Mono
@@ -143,6 +148,7 @@ private:
     // file I/O
     void saveFile(const QString &fileName);
     void loadImage(const QImage* image);
+    void updateVideoFrame(const QImage* image); // Update frame without resetting UI state
     void fileSaveSlotImpl(bool saveAs);
     // image adjustments
     void adjustImageMono();
@@ -184,9 +190,13 @@ private slots:
     void imageSettingsStackedWidgetIndexChangedSlot(int index);
     // file I/O
     void loadImageFromFileSlot(const QString &fileName);
+    void loadVideoSlot(const QString &fileName);
+    void exportVideoSlot();
+    void videoFrameChangedSlot(int frameNumber);
     void fileSaveSlot();
     void fileSaveAsSlot();
     void fileOpenSlot();
+    void fileOpenVideoSlot();
     // dither settings mono
     void DBS_setFormulaSlot(int formula);
     void RIM_modRiemersmaToggledSlot(bool value);
@@ -201,6 +211,8 @@ private slots:
     void GRD_widthValueChangedSlot(int value) ;
     void GRD_heightValueChangedSlot(int value);
     void GRD_minPixelsValueChangedSlot(int value);
+    void dotSizeValueChangedSlot(int value);
+    void dotSpacingValueChangedSlot(int value);
     void serpentineToggledSlot(bool serpentine);
     void jitterValueChangedSlot(double jitter);
     // dither settings color

@@ -29,6 +29,20 @@ bool FileManager::getOpenFileName(QString* fileName) {
     return(true);
 }
 
+bool FileManager::getOpenVideoName(QString* fileName) {
+    const QString filter = tr("Videos") + " (" + VIDEO_FILTERS.join(" ") + ");;" + 
+                          tr("All Files") + " (*.*)";
+    *fileName = QFileDialog::getOpenFileName((QWidget*)parent(),
+                                                    tr("Open Video File"), fileIoLocation,
+                                                    filter);
+    if(fileName->isEmpty() || fileName->isNull() || !QFile::exists(*fileName)) {
+        return false; // cancelled or file does not exist
+    }
+    fileIoLocation = QFileInfo(*fileName).absolutePath(); // remember file location
+    defaultDirectory = false;
+    return(true);
+}
+
 QString FileManager::fileSave(const bool saveAs, QString suggestedFileName) {
     /* Displays a file "Save-as" dialog when user chooses "Save As" and returns the file-name.
      * Displays a file "Save-as" dialog when the user chooses "Save" for the first time, then returns
