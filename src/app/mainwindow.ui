@@ -87,6 +87,12 @@
              <property name="horizontalScrollBarPolicy">
               <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
              </property>
+             <property name="interactive">
+              <bool>false</bool>
+             </property>
+             <property name="dragMode">
+              <enum>QGraphicsView::DragMode::ScrollHandDrag</enum>
+             </property>
             </widget>
            </item>
            <item>
